@@ -1,0 +1,17 @@
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\QuanLyCuaHangHoaQua.exe
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\QuanLyCuaHangHoaQua.deps.json
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\QuanLyCuaHangHoaQua.runtimeconfig.json
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\QuanLyCuaHangHoaQua.dll
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\QuanLyCuaHangHoaQua.pdb
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.csproj.GenerateResource.cache
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.GeneratedMSBuildEditorConfig.editorconfig
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.AssemblyInfoInputs.cache
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.AssemblyInfo.cs
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.csproj.CoreCompileInputs.cache
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.dll
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\refint\QuanLyCuaHangHoaQua.dll
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.pdb
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.genruntimeconfig.cache
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\ref\QuanLyCuaHangHoaQua.dll
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.FormQuanLy.resources
+D:\HK4\Hoc_C#\BanHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.FormThemSuaSanPham.resources
