@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formthemsuasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formthemsuasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormQuanLy.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
+              "RelativeDocumentMoniker": "FormQuanLy.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs [Design]",
+              "RelativeToolTip": "FormQuanLy.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T14:24:23.847Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormThemSuaSanPham.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormThemSuaSanPham.cs",
+              "RelativeDocumentMoniker": "FormThemSuaSanPham.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormThemSuaSanPham.cs [Design]",
+              "RelativeToolTip": "FormThemSuaSanPham.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T14:24:30.071Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormQuanLy.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
+              "RelativeDocumentMoniker": "FormQuanLy.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
+              "RelativeToolTip": "FormQuanLy.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAUwFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T16:05:30.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
+              "RelativeDocumentMoniker": "Database.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs*",
+              "RelativeToolTip": "Database.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T15:46:25.871Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,7 @@
-﻿namespace QuanLyCuaHangHoaQua
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+
+namespace QuanLyCuaHangHoaQua
 {
     public partial class FormQuanLy : Form
     {
@@ -62,6 +65,23 @@
             {
                 danhSachHoaQua.Remove(spChon);
                 LoadDataToGrid();
+            }
+        }
+
+        private void btnTestConnection_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection connection = Database.GetConnection())
+                {
+                    connection.Open();
+                    MessageBox.Show("Kết nối đến cơ sở dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi kết nối đến cơ sở dữ liệu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
