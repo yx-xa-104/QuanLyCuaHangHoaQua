@@ -52,7 +52,7 @@ namespace QuanLyCuaHangHoaQua
 
         private void FormThemSuaSanPham_Load(object sender, EventArgs e)
         {
-            if (_sanPhamDangSua != null)
+            if (_sanPhamDangSua != null) // Kiểm tra xem có sản phẩm nào đang được sửa không
             {
                 this.Text = "Chỉnh sửa thông tin sản phẩm";
                 btnLuu.Text = "Cập nhật";
@@ -61,11 +61,22 @@ namespace QuanLyCuaHangHoaQua
                 cbDonViTinh.Text = _sanPhamDangSua.DonViTinh; // Hiển thị đơn vị tính
                 numDonGia.Value = _sanPhamDangSua.DonGia; // Hiển thị đơn giá
                 txtXuatXu.Text = _sanPhamDangSua.XuatXu; // Hiển thị xuất xứ
-            }
-            else
-                this.Text = "Thêm sản phẩm mới"; // Nếu không có sản phẩm đang sửa, đặt tiêu đề là "Thêm sản phẩm mới"
-        }
+                txtMoTa.Text = _sanPhamDangSua.MoTa; // Hiển thị mô tả sản phẩm
 
+
+                // Chuyển đổi mảng byte HinhAnh thành hình ảnh và hiển thị trong PictureBox
+                if (_sanPhamDangSua.HinhAnh != null)
+                {
+                    // Chỉ khi HinhAnh có dữ liệu, chúng ta mới thực hiện chuyển đổi
+                    using (MemoryStream ms = new MemoryStream(_sanPhamDangSua.HinhAnh))
+                    {
+                        picHinhAnh.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                    this.Text = "Thêm sản phẩm mới"; // Nếu không có sản phẩm đang sửa, đặt tiêu đề là "Thêm sản phẩm mới"
+            }
+        }
 
         private void ClearForm()
         {
@@ -141,9 +152,7 @@ namespace QuanLyCuaHangHoaQua
                         conn.Open();
 
                         // Chuẩn bị câu lệnh SQL để cập nhật sản phẩm
-                        string query = "UPDATE SanPham " +
-                                       "SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu " +
-                                       "WHERE Id = @id";
+                        string query = "UPDATE SanPham " + "SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu, HinhAnh = @hinhAnh, MoTa = @moTa WHERE Id = @id";
 
                         // Tạo đối tượng SqlCommand với câu lệnh SQL và kết nối
                         using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -153,6 +162,8 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@donViTinh", cbDonViTinh.Text);
                             cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
+                            cmd.Parameters.AddWithValue("@hinhAnh", ImageToByteArray(picHinhAnh.Image));
+                            cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
 
                             // Tham số cho mệnh đề WHERE, lấy từ đối tượng đang sửa
                             cmd.Parameters.AddWithValue("@id", _sanPhamDangSua.Id);
@@ -164,7 +175,6 @@ namespace QuanLyCuaHangHoaQua
                             if (result > 0)
                             {
                                 MessageBox.Show("Cập nhật sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Close(); // Đóng form sau khi cập nhật
                             }
                             else
                             {
@@ -188,14 +198,17 @@ namespace QuanLyCuaHangHoaQua
                     {
                         // Mở kết nối đến cơ sở dữ liệu
                         conn.Open();
-                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu)" + "VALUES (@tenSP, @donVitinh, @donGia, @xuatXu)";
+                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa) VALUES (@tenSP, @donViTinh, @donGia, @xuatXu, @hinhAnh, @moTa)";
                         // Chuẩn bị câu lệnh SQL để thêm sản phẩm mới
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
+                            // Gắn giá trị vào các tham số
                             cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
                             cmd.Parameters.AddWithValue("@donVitinh", cbDonViTinh.Text);
                             cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
+                            cmd.Parameters.AddWithValue("@hinhAnh", ImageToByteArray(picHinhAnh.Image));
+                            cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
                             int result = cmd.ExecuteNonQuery(); // Thực thi câu lệnh SQL
 
                             // Kiểm tra kết quả trả về từ câu lệnh SQL
@@ -203,14 +216,12 @@ namespace QuanLyCuaHangHoaQua
                             {
 
                                 MessageBox.Show("Thêm sản phẩm mới thành công!", " Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Close(); // Đóng form sau khi lưu thành công
+                                
                             }
                             else
                             {
                                 MessageBox.Show("Thêm sản phẩm mới thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-
-
                         }
                     }
                 }
@@ -255,9 +266,38 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFile = new OpenFileDialog();
+            {
+                openFile.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    // Đặt hình ảnh đã chọn vào PictureBox
+                    picHinhAnh.Image = new Bitmap(openFile.FileName);
+                }
+            }
+            ;
+        }
+
+        private byte[] ImageToByteArray(Image image)
+        {
+            if (image == null)
+            {
+                return null; // Trả về null nếu hình ảnh không hợp lệ
+            }
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // Lưu hình ảnh vào MemoryStream và chuyển đổi thành mảng byte
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private void cbDonViTinh_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
 
         }
     }
 }
+
     
 

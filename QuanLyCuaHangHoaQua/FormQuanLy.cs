@@ -23,7 +23,7 @@ namespace QuanLyCuaHangHoaQua
                 using (SqlConnection conn = Database.GetConnection())
                 {
                     conn.Open();
-                    string query = "SELECT Id, TenSP, DonViTinh, DonGia, XuatXu FROM SanPham";
+                    string query = "SELECT Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa FROM SanPham";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -37,13 +37,17 @@ namespace QuanLyCuaHangHoaQua
                                 sp.DonViTinh = Convert.ToString(reader["DonViTinh"]);
                                 sp.DonGia = Convert.ToDecimal(reader["DonGia"]);
                                 sp.XuatXu = Convert.ToString(reader["XuatXu"]);
+                                sp.MoTa = Convert.ToString(reader["MoTa"]);
+                                if (reader["HinhAnh"] != DBNull.Value)
+                                {
+                                    // Chỉ khi cột HinhAnh có dữ liệu, chúng ta mới thực hiện ép kiểu
+                                    sp.HinhAnh = (byte[])reader["HinhAnh"];
+                                }
 
                                 danhSachHoaQua.Add(sp);
                             }
                         }
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -52,6 +56,11 @@ namespace QuanLyCuaHangHoaQua
             }
             dgvDanhSachSP.DataSource = null; // Đặt DataSource về null để làm mới
             dgvDanhSachSP.DataSource = danhSachHoaQua; // Gán lại DataSource với danh sách mới
+            // Thiết lập các cột hiển thị trong DataGridView
+            if (dgvDanhSachSP.Columns["HinhAnh"] != null)
+            {
+                dgvDanhSachSP.Columns["HinhAnh"].Visible = false;
+            }
         }
 
         private void btnThemMoi_Click(object sender, EventArgs e)
@@ -101,7 +110,7 @@ namespace QuanLyCuaHangHoaQua
                 "Dữ liệu sẽ bị xóa vĩnh viễn! Bạn có chắc chắn muốn xóa sản phẩm: '" + spChon.TenSP + "' không?",
                 "Xác nhận xóa",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning 
+                MessageBoxIcon.Warning
             );
 
             // Bước 4: Nếu người dùng xác nhận "Yes", tiến hành xóa trong CSDL
@@ -151,6 +160,57 @@ namespace QuanLyCuaHangHoaQua
         private void FormQuanLy_Load(object sender, EventArgs e)
         {
             LoadDataToGrid();
+        }
+
+        private void dgvDanhSachSP_SelectionChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có hàng nào đang được chọn không.
+            // Khi không có hàng nào được chọn (ví dụ lúc mới tải form), SelectedRows.Count = 0
+            if (dgvDanhSachSP.SelectedRows.Count > 0)
+            {
+                // Lấy đối tượng HoaQua tương ứng với hàng đang được chọn
+                HoaQua spChon = (HoaQua)dgvDanhSachSP.SelectedRows[0].DataBoundItem;
+
+                // Kiểm tra xem đối tượng đó và dữ liệu ảnh của nó có tồn tại không
+                if (spChon != null && spChon.HinhAnh != null)
+                {
+                    // Sử dụng MemoryStream để chuyển đổi mảng byte[] thành đối tượng Image
+                    using (MemoryStream ms = new MemoryStream(spChon.HinhAnh))
+                    {
+                        picPreview.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    // Nếu sản phẩm không có ảnh, xóa ảnh đang hiển thị trên PictureBox
+                    picPreview.Image = null;
+                }
+                if (spChon != null)
+                {
+                    lbDetailTenSP.Text = spChon.TenSP;
+                    lbDetailGia.Text = "Đơn giá: " + spChon.DonGia.ToString("N0") + " VNĐ";
+                    lbDetailXuatXu.Text = "Xuất xứ: " + spChon.XuatXu;
+                    lbDetailDVT.Text = "Đơn vị tính: " + spChon.DonViTinh;
+                    txtDetailMoTa.Text = spChon.MoTa;
+                }
+            }
+            else
+            {
+                // Nếu không có gì được chọn, xóa trắng các thông tin
+                picPreview.Image = null;
+                lbDetailTenSP.Text = "(Chưa chọn sản phẩm)";
+                lbDetailGia.Text = "Đơn giá:";
+                lbDetailXuatXu.Text = "Xuất xứ:";
+                lbDetailDVT.Text = "Đơn vị tính:";
+                txtDetailMoTa.Text = "";
+            }
+
+
+        }
+
+        private void txtMoTa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
