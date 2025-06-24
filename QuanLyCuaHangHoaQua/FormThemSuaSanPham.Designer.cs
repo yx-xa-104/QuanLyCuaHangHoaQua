@@ -62,13 +62,14 @@
             groupBox1.Controls.Add(lbTen);
             groupBox1.Location = new Point(12, 13);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(602, 202);
+            groupBox1.Size = new Size(602, 271);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thêm sản phẩm mới";
             // 
             // txtTenHoaQua
             // 
+            txtTenHoaQua.BorderStyle = BorderStyle.FixedSingle;
             txtTenHoaQua.Location = new Point(6, 37);
             txtTenHoaQua.Name = "txtTenHoaQua";
             txtTenHoaQua.Size = new Size(100, 23);
@@ -78,9 +79,9 @@
             // picHinhAnh
             // 
             picHinhAnh.BorderStyle = BorderStyle.FixedSingle;
-            picHinhAnh.Location = new Point(406, 74);
+            picHinhAnh.Location = new Point(157, 73);
             picHinhAnh.Name = "picHinhAnh";
-            picHinhAnh.Size = new Size(182, 84);
+            picHinhAnh.Size = new Size(288, 147);
             picHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
             picHinhAnh.TabIndex = 8;
             picHinhAnh.TabStop = false;
@@ -96,7 +97,7 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(513, 164);
+            btnLuu.Location = new Point(370, 226);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(75, 23);
             btnLuu.TabIndex = 10;
@@ -115,12 +116,13 @@
             // 
             // btnChonAnh
             // 
-            btnChonAnh.Location = new Point(406, 164);
+            btnChonAnh.Location = new Point(263, 226);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(101, 23);
             btnChonAnh.TabIndex = 9;
             btnChonAnh.Text = "Chọn ảnh ...";
             btnChonAnh.UseVisualStyleBackColor = true;
+            btnChonAnh.Click += btnChonAnh_Click;
             // 
             // cbDonViTinh
             // 
@@ -142,6 +144,7 @@
             // 
             // txtXuatXu
             // 
+            txtXuatXu.BorderStyle = BorderStyle.FixedSingle;
             txtXuatXu.Location = new Point(488, 37);
             txtXuatXu.Name = "txtXuatXu";
             txtXuatXu.Size = new Size(100, 23);
@@ -159,7 +162,7 @@
             // numDonGia
             // 
             numDonGia.Location = new Point(321, 37);
-            numDonGia.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numDonGia.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numDonGia.Name = "numDonGia";
             numDonGia.Size = new Size(120, 23);
             numDonGia.TabIndex = 5;
@@ -178,7 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(627, 228);
+            ClientSize = new Size(627, 296);
             Controls.Add(groupBox1);
             Name = "FormThemSuaSanPham";
             Text = "FormThemSuaSanPham";

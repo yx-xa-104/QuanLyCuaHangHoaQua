@@ -15,5 +15,7 @@ namespace QuanLyCuaHangHoaQua
         public decimal SoLuong { get; set; }
         public string XuatXu { get; set; }
         public string DonViTinh { get; set; }
+        public int Id { get; set; }
+
     }
 }

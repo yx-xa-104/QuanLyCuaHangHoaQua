@@ -32,7 +32,6 @@
             btnThemMoi = new Button();
             btnSua = new Button();
             btnXoa = new Button();
-            btnTestConnection = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachSP).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +43,7 @@
             dgvDanhSachSP.Location = new Point(56, 50);
             dgvDanhSachSP.Name = "dgvDanhSachSP";
             dgvDanhSachSP.ReadOnly = true;
-            dgvDanhSachSP.Size = new Size(602, 218);
+            dgvDanhSachSP.Size = new Size(602, 256);
             dgvDanhSachSP.TabIndex = 15;
             // 
             // btnThemMoi
@@ -80,29 +79,18 @@
             btnXoa.UseVisualStyleBackColor = true;
             btnXoa.Click += btnXoa_Click;
             // 
-            // btnTestConnection
-            // 
-            btnTestConnection.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTestConnection.Location = new Point(583, 274);
-            btnTestConnection.Name = "btnTestConnection";
-            btnTestConnection.Size = new Size(75, 37);
-            btnTestConnection.TabIndex = 19;
-            btnTestConnection.Text = "Test";
-            btnTestConnection.UseVisualStyleBackColor = true;
-            btnTestConnection.Click += btnTestConnection_Click;
-            // 
             // FormQuanLy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(715, 318);
-            Controls.Add(btnTestConnection);
             Controls.Add(btnXoa);
             Controls.Add(btnSua);
             Controls.Add(btnThemMoi);
             Controls.Add(dgvDanhSachSP);
             Name = "FormQuanLy";
             Text = "FormQuanLy";
+            Load += FormQuanLy_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachSP).EndInit();
             ResumeLayout(false);
         }
@@ -113,6 +101,5 @@
         private Button btnThemMoi;
         private Button btnSua;
         private Button btnXoa;
-        private Button btnTestConnection;
     }
 }

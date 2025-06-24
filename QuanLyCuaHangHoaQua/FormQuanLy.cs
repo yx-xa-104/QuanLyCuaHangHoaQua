@@ -15,10 +15,43 @@ namespace QuanLyCuaHangHoaQua
 
         private void LoadDataToGrid()
         {
-            // Đảm bảo DataGridView được làm mới trước khi gán nguồn dữ liệu mới
-            dgvDanhSachSP.DataSource = null;
-            // Gán danh sách hoa quả vào DataGridView
-            dgvDanhSachSP.DataSource = danhSachHoaQua;
+            // Xóa sạch dữ liệu trong DataGridView
+            danhSachHoaQua.Clear();
+
+            try
+            {
+                using (SqlConnection conn = Database.GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT Id, TenSP, DonViTinh, DonGia, XuatXu FROM SanPham";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Tạo một đối tượng HoaQua mới và gán giá trị từ SqlDataReader
+                                HoaQua sp = new HoaQua();
+                                sp.Id = Convert.ToInt32(reader["Id"]);
+                                sp.TenSP = Convert.ToString(reader["TenSP"]);
+                                sp.DonViTinh = Convert.ToString(reader["DonViTinh"]);
+                                sp.DonGia = Convert.ToDecimal(reader["DonGia"]);
+                                sp.XuatXu = Convert.ToString(reader["XuatXu"]);
+
+                                danhSachHoaQua.Add(sp);
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            dgvDanhSachSP.DataSource = null; // Đặt DataSource về null để làm mới
+            dgvDanhSachSP.DataSource = danhSachHoaQua; // Gán lại DataSource với danh sách mới
         }
 
         private void btnThemMoi_Click(object sender, EventArgs e)
@@ -53,36 +86,71 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            // Bước 1: Kiểm tra xem người dùng đã chọn hàng nào chưa (giữ nguyên)
             if (dgvDanhSachSP.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
+            // Bước 2: Lấy đối tượng sản phẩm từ hàng được chọn (giữ nguyên)
             HoaQua spChon = (HoaQua)dgvDanhSachSP.SelectedRows[0].DataBoundItem;
-            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa sản phẩm '{spChon.TenSP}' không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Bước 3: Hỏi xác nhận với một thông điệp cảnh báo mạnh mẽ hơn
+            DialogResult result = MessageBox.Show(
+                "Dữ liệu sẽ bị xóa vĩnh viễn! Bạn có chắc chắn muốn xóa sản phẩm: '" + spChon.TenSP + "' không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning 
+            );
+
+            // Bước 4: Nếu người dùng xác nhận "Yes", tiến hành xóa trong CSDL
             if (result == DialogResult.Yes)
             {
-                danhSachHoaQua.Remove(spChon);
-                LoadDataToGrid();
+                try
+                {
+                    using (SqlConnection conn = Database.GetConnection())
+                    {
+                        conn.Open();
+
+                        // Viết câu lệnh DELETE với Parameter để chỉ định đúng Id
+                        string query = "DELETE FROM SanPham WHERE Id = @id";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            // Gắn giá trị cho tham số @id
+                            cmd.Parameters.AddWithValue("@id", spChon.Id);
+
+                            // Thực thi câu lệnh
+                            int res = cmd.ExecuteNonQuery();
+
+                            // Kiểm tra và thông báo kết quả
+                            if (res > 0)
+                            {
+                                MessageBox.Show("Xóa sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                // Tải lại dữ liệu lên Grid để cập nhật giao diện
+                                LoadDataToGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa thất bại. Có thể sản phẩm đã được xóa bởi một người khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            // Nếu người dùng chọn "No", không làm gì cả.
         }
 
-        private void btnTestConnection_Click(object sender, EventArgs e)
+
+
+        private void FormQuanLy_Load(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection connection = Database.GetConnection())
-                {
-                    connection.Open();
-                    MessageBox.Show("Kết nối đến cơ sở dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi kết nối đến cơ sở dữ liệu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LoadDataToGrid();
         }
     }
 }

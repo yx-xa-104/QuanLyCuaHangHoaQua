@@ -1,17 +1,21 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 
 namespace QuanLyCuaHangHoaQua
 {
     public partial class FormThemSuaSanPham : Form
     {
+        // Giải thích
         // Value Changed event của NumericUpDown
         // SelectedIndexChanged event của ComboBox
         // Form Closing event của Form
@@ -58,7 +62,7 @@ namespace QuanLyCuaHangHoaQua
                 numDonGia.Value = _sanPhamDangSua.DonGia; // Hiển thị đơn giá
                 txtXuatXu.Text = _sanPhamDangSua.XuatXu; // Hiển thị xuất xứ
             }
-            else 
+            else
                 this.Text = "Thêm sản phẩm mới"; // Nếu không có sản phẩm đang sửa, đặt tiêu đề là "Thêm sản phẩm mới"
         }
 
@@ -128,25 +132,93 @@ namespace QuanLyCuaHangHoaQua
                 return; // Dừng thực hiện nếu có lỗi
             }
 
-            if (_sanPhamDangSua != null)
+            if (_sanPhamDangSua != null) // Chế độ sửa sản phẩm
             {
-                _sanPhamDangSua.TenSP = txtTenHoaQua.Text; // Cập nhật tên sản phẩm
-                _sanPhamDangSua.DonViTinh = cbDonViTinh.Text; // Cập nhật đơn vị tính
-                _sanPhamDangSua.DonGia = numDonGia.Value; // Cập nhật đơn giá
-                _sanPhamDangSua.XuatXu = txtXuatXu.Text; // Cập nhật xuất xứ
-                MessageBox.Show("Đã cập nhật sản phẩm ' " + _sanPhamDangSua.TenSP + " ' thành công!", "Cập nhật thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                HoaQua sanPhamMoi = new HoaQua(); // Tạo mới đối tượng HoaQua
+                try
                 {
-                    sanPhamMoi.TenSP = txtTenHoaQua.Text; // Gán tên sản phẩm
-                    sanPhamMoi.DonViTinh = cbDonViTinh.Text; // Gán đơn vị tính
-                    sanPhamMoi.DonGia = numDonGia.Value; // Gán đơn giá
-                    sanPhamMoi.XuatXu = txtXuatXu.Text; // Gán xuất xứ
+                    using (SqlConnection conn = Database.GetConnection())
+                    {
+                        conn.Open();
+
+                        // Chuẩn bị câu lệnh SQL để cập nhật sản phẩm
+                        string query = "UPDATE SanPham " +
+                                       "SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu " +
+                                       "WHERE Id = @id";
+
+                        // Tạo đối tượng SqlCommand với câu lệnh SQL và kết nối
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            //  Gắn giá trị vào các tham số
+                            cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
+                            cmd.Parameters.AddWithValue("@donViTinh", cbDonViTinh.Text);
+                            cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
+                            cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
+
+                            // Tham số cho mệnh đề WHERE, lấy từ đối tượng đang sửa
+                            cmd.Parameters.AddWithValue("@id", _sanPhamDangSua.Id);
+
+                            // Thực thi câu lệnh
+                            int result = cmd.ExecuteNonQuery();
+
+                            // Kiểm tra kết quả và thông báo
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Cập nhật sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close(); // Đóng form sau khi cập nhật
+                            }
+                            else
+                            {
+                                // Trường hợp này hiếm khi xảy ra nếu logic đúng
+                                MessageBox.Show("Cập nhật thất bại. Không có sản phẩm nào được tìm thấy với ID này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
                 }
-                _danhSachSP.Add(sanPhamMoi); // Thêm sản phẩm mới vào danh sách
-                MessageBox.Show("Thêm sản phẩm mới thành công!"); // Hiển thị thông báo thành công
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else // Chế độ thêm sản phẩm mới
+            {
+                try
+                {
+                    // Kiểm tra kết nối đến cơ sở dữ liệu và thực hiện thêm sản phẩm mới
+                    using (SqlConnection conn = Database.GetConnection())
+                    {
+                        // Mở kết nối đến cơ sở dữ liệu
+                        conn.Open();
+                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu)" + "VALUES (@tenSP, @donVitinh, @donGia, @xuatXu)";
+                        // Chuẩn bị câu lệnh SQL để thêm sản phẩm mới
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
+                            cmd.Parameters.AddWithValue("@donVitinh", cbDonViTinh.Text);
+                            cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
+                            cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
+                            int result = cmd.ExecuteNonQuery(); // Thực thi câu lệnh SQL
+
+                            // Kiểm tra kết quả trả về từ câu lệnh SQL
+                            if (result > 0)
+                            {
+
+                                MessageBox.Show("Thêm sản phẩm mới thành công!", " Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close(); // Đóng form sau khi lưu thành công
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm sản phẩm mới thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi thêm sản phẩm mới: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Dừng thực hiện nếu có lỗi
+                }
             }
             this.Close(); // Đóng form sau khi lưu thành công
 
@@ -161,22 +233,7 @@ namespace QuanLyCuaHangHoaQua
 
             string xuatXu = txtXuatXu.Text.Trim();
 
-            /* Tạo đối tượng sanPhamMoi
-            HoaQua sanPhamMoi = new HoaQua();
-
-            // Gán các giá trị từ form vào đối tượng HoaQua
-            sanPhamMoi.TenSP = txtTenHoaQua.Text; // Gán tên sản phẩm
-            sanPhamMoi.DonViTinh = cbDonViTinh.Text; // Gán đơn vị tính
-            sanPhamMoi.DonGia = numDonGia.Value; // Gán đơn giá
-            sanPhamMoi.XuatXu = txtXuatXu.Text; // Gán xuất xứ
-
-            _danhSachSP.Add(sanPhamMoi); // Thêm sản phẩm mới vào danh sách
-
-            MessageBox.Show("Đã thêm sản phẩm ' " + sanPhamMoi.TenSP + " '!\n\n" + "Tổng số sản phẩm trong cửa hàng: " + danhSachHoaQua.Count, "Thành công");
-            */
-
             ClearForm();
-            
 
             // Dựng chuỗi thông tin để hiển thị
             string thongTin = "Thông tin sản phẩm đã thu thập: \n" +
@@ -194,6 +251,11 @@ namespace QuanLyCuaHangHoaQua
 
             // Hiển thị số lượng ký tự trong Label
             lbCharCount.Text = count.ToString() + " ký tự";
+        }
+
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
