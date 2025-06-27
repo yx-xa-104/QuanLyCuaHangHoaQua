@@ -13,53 +13,26 @@ namespace QuanLyCuaHangHoaQua
             InitializeComponent();
         }
 
-        private void LoadDataToGrid()
+        private void LoadDataToGrid(string tuKhoa = "") // Thêm tham số tuKhoa để lọc dữ liệu
         {
-            // Xóa sạch dữ liệu trong DataGridView
-            danhSachHoaQua.Clear();
-
             try
             {
-                using (SqlConnection conn = Database.GetConnection())
-                {
-                    conn.Open();
-                    string query = "SELECT Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa FROM SanPham";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                // Tạo một đối tượng HoaQua mới và gán giá trị từ SqlDataReader
-                                HoaQua sp = new HoaQua();
-                                sp.Id = Convert.ToInt32(reader["Id"]);
-                                sp.TenSP = Convert.ToString(reader["TenSP"]);
-                                sp.DonViTinh = Convert.ToString(reader["DonViTinh"]);
-                                sp.DonGia = Convert.ToDecimal(reader["DonGia"]);
-                                sp.XuatXu = Convert.ToString(reader["XuatXu"]);
-                                sp.MoTa = Convert.ToString(reader["MoTa"]);
-                                if (reader["HinhAnh"] != DBNull.Value)
-                                {
-                                    // Chỉ khi cột HinhAnh có dữ liệu, chúng ta mới thực hiện ép kiểu
-                                    sp.HinhAnh = (byte[])reader["HinhAnh"];
-                                }
+                // Chỉ cần gọi phương thức từ lớp Database để lấy dữ liệu
+                danhSachHoaQua = Database.GetAllProducts(tuKhoa);
 
-                                danhSachHoaQua.Add(sp);
-                            }
-                        }
-                    }
-                }
+                // Gán danh sách hoa quả vào DataGridView
+                dgvDanhSachSP.DataSource = null;
+                dgvDanhSachSP.DataSource = danhSachHoaQua;
+
+                // Thiết lập các cột hiển thị trong DataGridView
+                if (dgvDanhSachSP.Columns["HinhAnh"] != null)
+                    dgvDanhSachSP.Columns["HinhAnh"].Visible = false;
+                if (dgvDanhSachSP.Columns["MoTa"] != null)
+                    dgvDanhSachSP.Columns["MoTa"].Visible = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            dgvDanhSachSP.DataSource = null; // Đặt DataSource về null để làm mới
-            dgvDanhSachSP.DataSource = danhSachHoaQua; // Gán lại DataSource với danh sách mới
-            // Thiết lập các cột hiển thị trong DataGridView
-            if (dgvDanhSachSP.Columns["HinhAnh"] != null)
-            {
-                dgvDanhSachSP.Columns["HinhAnh"].Visible = false;
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -159,7 +132,7 @@ namespace QuanLyCuaHangHoaQua
 
         private void FormQuanLy_Load(object sender, EventArgs e)
         {
-            LoadDataToGrid();
+            LoadDataToGrid();         
         }
 
         private void dgvDanhSachSP_SelectionChanged(object sender, EventArgs e)
@@ -211,6 +184,13 @@ namespace QuanLyCuaHangHoaQua
         private void txtMoTa_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            // Khi người dùng nhập từ khóa tìm kiếm, gọi hàm LoadDataToGrid với từ khóa đó
+            string tuKhoa = txtTimKiem.Text;
+            LoadDataToGrid(tuKhoa);
         }
     }
 }

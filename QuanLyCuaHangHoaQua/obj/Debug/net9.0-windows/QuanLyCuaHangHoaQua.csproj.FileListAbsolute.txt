@@ -82,3 +82,5 @@ C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug
 C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.pdb
 C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\ref\QuanLyCuaHangHoaQua.dll
+C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.FormDangNhap.resources

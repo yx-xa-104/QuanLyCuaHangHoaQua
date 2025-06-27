@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtMoTa = new TextBox();
+            lbMoTa = new Label();
             txtTenHoaQua = new TextBox();
             picHinhAnh = new PictureBox();
             lbCharCount = new Label();
@@ -41,8 +43,6 @@
             lbDonGia = new Label();
             numDonGia = new NumericUpDown();
             lbTen = new Label();
-            lbMoTa = new Label();
-            txtMoTa = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picHinhAnh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numDonGia).BeginInit();
@@ -66,10 +66,29 @@
             groupBox1.Controls.Add(lbTen);
             groupBox1.Location = new Point(12, 13);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(803, 271);
+            groupBox1.Size = new Size(803, 301);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thêm sản phẩm mới";
+            // 
+            // txtMoTa
+            // 
+            txtMoTa.BorderStyle = BorderStyle.FixedSingle;
+            txtMoTa.Location = new Point(634, 38);
+            txtMoTa.Multiline = true;
+            txtMoTa.Name = "txtMoTa";
+            txtMoTa.ScrollBars = ScrollBars.Vertical;
+            txtMoTa.Size = new Size(117, 23);
+            txtMoTa.TabIndex = 13;
+            // 
+            // lbMoTa
+            // 
+            lbMoTa.AutoSize = true;
+            lbMoTa.Location = new Point(634, 19);
+            lbMoTa.Name = "lbMoTa";
+            lbMoTa.Size = new Size(41, 15);
+            lbMoTa.TabIndex = 12;
+            lbMoTa.Text = "Mô tả:";
             // 
             // txtTenHoaQua
             // 
@@ -83,10 +102,10 @@
             // picHinhAnh
             // 
             picHinhAnh.BorderStyle = BorderStyle.FixedSingle;
-            picHinhAnh.Location = new Point(225, 73);
+            picHinhAnh.Location = new Point(227, 72);
             picHinhAnh.Name = "picHinhAnh";
-            picHinhAnh.Size = new Size(322, 147);
-            picHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
+            picHinhAnh.Size = new Size(320, 180);
+            picHinhAnh.SizeMode = PictureBoxSizeMode.Zoom;
             picHinhAnh.TabIndex = 8;
             picHinhAnh.TabStop = false;
             // 
@@ -101,7 +120,7 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(472, 226);
+            btnLuu.Location = new Point(472, 258);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(75, 23);
             btnLuu.TabIndex = 10;
@@ -120,7 +139,7 @@
             // 
             // btnChonAnh
             // 
-            btnChonAnh.Location = new Point(365, 226);
+            btnChonAnh.Location = new Point(365, 258);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(101, 23);
             btnChonAnh.TabIndex = 9;
@@ -182,30 +201,11 @@
             lbTen.TabIndex = 0;
             lbTen.Text = "Tên hoa quả:";
             // 
-            // lbMoTa
-            // 
-            lbMoTa.AutoSize = true;
-            lbMoTa.Location = new Point(634, 19);
-            lbMoTa.Name = "lbMoTa";
-            lbMoTa.Size = new Size(41, 15);
-            lbMoTa.TabIndex = 12;
-            lbMoTa.Text = "Mô tả:";
-            // 
-            // txtMoTa
-            // 
-            txtMoTa.BorderStyle = BorderStyle.FixedSingle;
-            txtMoTa.Location = new Point(634, 38);
-            txtMoTa.Multiline = true;
-            txtMoTa.Name = "txtMoTa";
-            txtMoTa.ScrollBars = ScrollBars.Vertical;
-            txtMoTa.Size = new Size(117, 23);
-            txtMoTa.TabIndex = 13;
-            // 
             // FormThemSuaSanPham
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(857, 296);
+            ClientSize = new Size(857, 326);
             Controls.Add(groupBox1);
             Name = "FormThemSuaSanPham";
             Text = "FormThemSuaSanPham";

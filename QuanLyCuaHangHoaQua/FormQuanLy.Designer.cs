@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLy));
             dgvDanhSachSP = new DataGridView();
             btnThemMoi = new Button();
             btnSua = new Button();
@@ -41,6 +42,8 @@
             lbDetailXuatXu = new Label();
             lbDetailGia = new Label();
             lbDetailTenSP = new Label();
+            txtTimKiem = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachSP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picPreview).BeginInit();
             groupBox2.SuspendLayout();
@@ -51,30 +54,30 @@
             dgvDanhSachSP.AllowUserToAddRows = false;
             dgvDanhSachSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDanhSachSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDanhSachSP.Location = new Point(67, 59);
+            dgvDanhSachSP.Location = new Point(67, 94);
             dgvDanhSachSP.Name = "dgvDanhSachSP";
             dgvDanhSachSP.ReadOnly = true;
-            dgvDanhSachSP.Size = new Size(536, 480);
+            dgvDanhSachSP.Size = new Size(536, 445);
             dgvDanhSachSP.TabIndex = 15;
             dgvDanhSachSP.SelectionChanged += dgvDanhSachSP_SelectionChanged;
             // 
             // btnThemMoi
             // 
-            btnThemMoi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemMoi.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThemMoi.Location = new Point(67, 12);
             btnThemMoi.Name = "btnThemMoi";
-            btnThemMoi.Size = new Size(166, 28);
+            btnThemMoi.Size = new Size(166, 37);
             btnThemMoi.TabIndex = 16;
-            btnThemMoi.Text = "Thêm sản phẩm mới";
+            btnThemMoi.Text = "Thêm sản phẩm";
             btnThemMoi.UseVisualStyleBackColor = true;
             btnThemMoi.Click += btnThemMoi_Click;
             // 
             // btnSua
             // 
-            btnSua.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSua.Location = new Point(297, 12);
+            btnSua.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSua.Location = new Point(276, 12);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(119, 28);
+            btnSua.Size = new Size(142, 37);
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa sản phẩm";
             btnSua.UseVisualStyleBackColor = true;
@@ -82,10 +85,10 @@
             // 
             // btnXoa
             // 
-            btnXoa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(480, 12);
+            btnXoa.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.Location = new Point(461, 12);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(122, 28);
+            btnXoa.Size = new Size(141, 37);
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xoá sản phẩm";
             btnXoa.UseVisualStyleBackColor = true;
@@ -94,7 +97,7 @@
             // picPreview
             // 
             picPreview.BorderStyle = BorderStyle.FixedSingle;
-            picPreview.Location = new Point(680, 59);
+            picPreview.Location = new Point(680, 94);
             picPreview.Name = "picPreview";
             picPreview.Size = new Size(320, 180);
             picPreview.SizeMode = PictureBoxSizeMode.Zoom;
@@ -105,7 +108,7 @@
             // 
             lbPreview.AutoSize = true;
             lbPreview.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbPreview.Location = new Point(750, 31);
+            lbPreview.Location = new Point(747, 66);
             lbPreview.Name = "lbPreview";
             lbPreview.Size = new Size(195, 25);
             lbPreview.TabIndex = 20;
@@ -120,9 +123,9 @@
             groupBox2.Controls.Add(lbDetailGia);
             groupBox2.Controls.Add(lbDetailTenSP);
             groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(680, 271);
+            groupBox2.Location = new Point(680, 280);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(311, 268);
+            groupBox2.Size = new Size(320, 259);
             groupBox2.TabIndex = 21;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin chi tiết:";
@@ -132,7 +135,7 @@
             txtDetailMoTa.BackColor = SystemColors.Window;
             txtDetailMoTa.BorderStyle = BorderStyle.FixedSingle;
             txtDetailMoTa.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDetailMoTa.Location = new Point(6, 190);
+            txtDetailMoTa.Location = new Point(6, 181);
             txtDetailMoTa.Multiline = true;
             txtDetailMoTa.Name = "txtDetailMoTa";
             txtDetailMoTa.ReadOnly = true;
@@ -145,7 +148,7 @@
             // 
             lbDetailMoTa.AutoSize = true;
             lbDetailMoTa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailMoTa.Location = new Point(6, 166);
+            lbDetailMoTa.Location = new Point(6, 157);
             lbDetailMoTa.Name = "lbDetailMoTa";
             lbDetailMoTa.Size = new Size(136, 21);
             lbDetailMoTa.TabIndex = 4;
@@ -155,7 +158,7 @@
             // 
             lbDetailDVT.AutoSize = true;
             lbDetailDVT.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailDVT.Location = new Point(6, 133);
+            lbDetailDVT.Location = new Point(6, 124);
             lbDetailDVT.Name = "lbDetailDVT";
             lbDetailDVT.Size = new Size(99, 21);
             lbDetailDVT.TabIndex = 3;
@@ -165,7 +168,7 @@
             // 
             lbDetailXuatXu.AutoSize = true;
             lbDetailXuatXu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailXuatXu.Location = new Point(6, 100);
+            lbDetailXuatXu.Location = new Point(6, 91);
             lbDetailXuatXu.Name = "lbDetailXuatXu";
             lbDetailXuatXu.Size = new Size(73, 21);
             lbDetailXuatXu.TabIndex = 2;
@@ -175,7 +178,7 @@
             // 
             lbDetailGia.AutoSize = true;
             lbDetailGia.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailGia.Location = new Point(6, 67);
+            lbDetailGia.Location = new Point(6, 58);
             lbDetailGia.Name = "lbDetailGia";
             lbDetailGia.Size = new Size(39, 21);
             lbDetailGia.TabIndex = 1;
@@ -185,17 +188,42 @@
             // 
             lbDetailTenSP.AutoSize = true;
             lbDetailTenSP.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailTenSP.Location = new Point(6, 34);
+            lbDetailTenSP.Location = new Point(6, 25);
             lbDetailTenSP.Name = "lbDetailTenSP";
             lbDetailTenSP.Size = new Size(174, 21);
             lbDetailTenSP.TabIndex = 0;
             lbDetailTenSP.Text = "Chưa chọn sản phẩm:";
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.BorderStyle = BorderStyle.FixedSingle;
+            txtTimKiem.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtTimKiem.Location = new Point(209, 54);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(393, 33);
+            txtTimKiem.TabIndex = 23;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Image = (Image)resources.GetObject("label1.Image");
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
+            label1.Location = new Point(67, 54);
+            label1.Name = "label1";
+            label1.Size = new Size(136, 32);
+            label1.TabIndex = 24;
+            label1.Text = "     Tìm kiếm";
             // 
             // FormQuanLy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1045, 594);
+            Controls.Add(label1);
+            Controls.Add(txtTimKiem);
             Controls.Add(groupBox2);
             Controls.Add(lbPreview);
             Controls.Add(picPreview);
@@ -229,5 +257,7 @@
         private Label lbDetailDVT;
         private Label lbDetailXuatXu;
         private TextBox txtDetailMoTa;
+        private TextBox txtTimKiem;
+        private Label label1;
     }
 }
