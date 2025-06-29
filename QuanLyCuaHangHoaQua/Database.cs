@@ -54,7 +54,7 @@ namespace QuanLyCuaHangHoaQua
                                 if (reader["HinhAnh"] != DBNull.Value)
                                 {
                                     // Chỉ khi cột HinhAnh có dữ liệu, chúng ta mới thực hiện ép kiểu
-                                    sp.HinhAnh = (byte[])reader["HinhAnh"];
+                                    sp.HinhAnh = Convert.ToString(reader["HinhAnh"]);
                                 }
                                 sp.SoLuongTon = Convert.ToInt32(reader["SoLuongTon"]);
 

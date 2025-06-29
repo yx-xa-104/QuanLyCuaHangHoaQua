@@ -164,18 +164,14 @@ namespace QuanLyCuaHangHoaQua
                 HoaQua spChon = (HoaQua)row.DataBoundItem;
 
                 // Kiểm tra xem đối tượng đó và dữ liệu ảnh của nó có tồn tại không
-                if (spChon != null && spChon.HinhAnh != null)
+                if (spChon != null && !string.IsNullOrEmpty(spChon.HinhAnh) && File.Exists(spChon.HinhAnh))
                 {
-                    // Sử dụng MemoryStream để chuyển đổi mảng byte[] thành đối tượng Image
-                    using (MemoryStream ms = new MemoryStream(spChon.HinhAnh))
-                    {
-                        picPreview.Image = Image.FromStream(ms);
-                    }
+                    // Chỉ hiển thị ảnh nếu đường dẫn hợp lệ và file thực sự tồn tại
+                    picPreview.Image = Image.FromFile(spChon.HinhAnh);
                 }
                 else
                 {
-                    // Nếu sản phẩm không có ảnh, xóa ảnh đang hiển thị trên PictureBox
-                    picPreview.Image = null;
+                    picPreview.Image = null; // Xóa ảnh preview nếu không có đường dẫn hoặc file không tồn tại
                 }
                 if (spChon != null)
                 {

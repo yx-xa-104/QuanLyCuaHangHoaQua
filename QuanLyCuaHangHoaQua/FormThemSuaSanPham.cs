@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,10 +38,10 @@ namespace QuanLyCuaHangHoaQua
 
         // Danh sách lưu trữ các đối tượng HoaQua
         List<HoaQua> danhSachHoaQua = new List<HoaQua>();
-        // Biến lưu trữ sản phẩm đang được sửa (nếu có)
-        private HoaQua _sanPhamDangSua = null;
 
+        private HoaQua _sanPhamDangSua = null;
         private List<HoaQua> _danhSachSP;
+        private string _duongDanAnhDuocChon = null;
 
         // Constructor này sẽ được gọi từ FormQuanLy
         public FormThemSuaSanPham(List<HoaQua> danhSach, HoaQua spCanSua = null)
@@ -63,19 +64,15 @@ namespace QuanLyCuaHangHoaQua
                 txtXuatXu.Text = _sanPhamDangSua.XuatXu; // Hiển thị xuất xứ
                 txtMoTa.Text = _sanPhamDangSua.MoTa; // Hiển thị mô tả sản phẩm
                 numSoLuongTon.Value = _sanPhamDangSua.SoLuongTon; // Hiển thị số lượng tồn kho
+                _duongDanAnhDuocChon = _sanPhamDangSua.HinhAnh;
 
-
-                // Chuyển đổi mảng byte HinhAnh thành hình ảnh và hiển thị trong PictureBox
-                if (_sanPhamDangSua.HinhAnh != null)
+                // Hiển thị hình ảnh nếu có
+                if (!string.IsNullOrEmpty(_duongDanAnhDuocChon) && File.Exists(_duongDanAnhDuocChon))
                 {
-                    // Chỉ khi HinhAnh có dữ liệu, chúng ta mới thực hiện chuyển đổi
-                    using (MemoryStream ms = new MemoryStream(_sanPhamDangSua.HinhAnh))
-                    {
-                        picHinhAnh.Image = Image.FromStream(ms);
-                    }
+                    picHinhAnh.Image = Image.FromFile(_duongDanAnhDuocChon);
                 }
-                else
-                    this.Text = "Thêm sản phẩm mới"; // Nếu không có sản phẩm đang sửa, đặt tiêu đề là "Thêm sản phẩm mới"
+
+
             }
         }
 
@@ -162,7 +159,7 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@donViTinh", cbDonViTinh.Text);
                             cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
-                            cmd.Parameters.AddWithValue("@hinhAnh", ImageToByteArray(picHinhAnh.Image));
+                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
                             cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
                             cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
 
@@ -208,7 +205,7 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@donVitinh", cbDonViTinh.Text);
                             cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
-                            cmd.Parameters.AddWithValue("@hinhAnh", ImageToByteArray(picHinhAnh.Image));
+                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
                             cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
                             cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
                             int result = cmd.ExecuteNonQuery(); // Thực thi câu lệnh SQL
@@ -269,30 +266,17 @@ namespace QuanLyCuaHangHoaQua
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
-            {
-                openFile.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
-                if (openFile.ShowDialog() == DialogResult.OK)
-                {
-                    // Đặt hình ảnh đã chọn vào PictureBox
-                    picHinhAnh.Image = new Bitmap(openFile.FileName);
-                }
-            }
-            ;
-        }
+            openFile.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
 
-        private byte[] ImageToByteArray(Image image)
-        {
-            if (image == null)
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
-                return null; // Trả về null nếu hình ảnh không hợp lệ
+                // Lưu đường dẫn file người dùng đã chọn vào biến thành viên
+                _duongDanAnhDuocChon = openFile.FileName;
+
+                // Hiển thị ảnh preview lên PictureBox
+                picHinhAnh.Image = Image.FromFile(_duongDanAnhDuocChon);
             }
-            using (MemoryStream ms = new MemoryStream())
-            {
-                // Lưu hình ảnh vào MemoryStream và chuyển đổi thành mảng byte
-                image.Save(ms, image.RawFormat);
-                return ms.ToArray();
-            }
-        }
+        }    
 
         private void cbDonViTinh_SelectedIndexChanged_1(object sender, EventArgs e)
         {

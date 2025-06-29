@@ -15,7 +15,7 @@ namespace QuanLyCuaHangHoaQua
         public string XuatXu { get; set; }
         public string DonViTinh { get; set; }
         public int Id { get; set; }
-        public byte[] HinhAnh { get; set; }
+        public string HinhAnh { get; set; }
         public string MoTa { get; set; }
         public int SoLuongTon { get; set; }
     }
