@@ -24,7 +24,7 @@ namespace QuanLyCuaHangHoaQua
                     conn.Open();
                     // Id bị nhảy nguyên nhân là do server restart
                     // Câu lệnh SQL để lấy danh sách sản phẩm với số thứ tự
-                    string query = "SELECT ROW_NUMBER() OVER (ORDER BY TenSP ASC) AS STT, Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa FROM SanPham";
+                    string query = "SELECT ROW_NUMBER() OVER (ORDER BY TenSP ASC) AS STT, Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon FROM SanPham";
 
                     // Kiểm tra nếu có từ khóa tìm kiếm
                     if (!string.IsNullOrWhiteSpace(tuKhoa))
@@ -56,6 +56,7 @@ namespace QuanLyCuaHangHoaQua
                                     // Chỉ khi cột HinhAnh có dữ liệu, chúng ta mới thực hiện ép kiểu
                                     sp.HinhAnh = (byte[])reader["HinhAnh"];
                                 }
+                                sp.SoLuongTon = Convert.ToInt32(reader["SoLuongTon"]);
 
                                 danhSachHoaQua.Add(sp);
                             }
@@ -68,6 +69,44 @@ namespace QuanLyCuaHangHoaQua
                 throw new Exception("Lỗi khi lấy danh sách sản phẩm: " + ex.Message);
             }
             return danhSachHoaQua;
+        }
+       
+        // Lấy doanh thu hàng ngày trong khoảng thời gian từ ngày TuNgay đến DenNgay
+        public static Dictionary<DateTime, decimal> GetDailyRevenue(DateTime fromDate, DateTime toDate)
+        {
+            // Kiểm tra ngày hợp lệ
+            var revenueData = new Dictionary<DateTime, decimal>();
+            try
+            {
+                using (SqlConnection conn = GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT
+                                CAST(NgayTao AS DATE) AS Ngay,
+                                SUM(TongTien) AS TongDoanhThu
+                             FROM HoaDon
+                             WHERE NgayTao BETWEEN @TuNgay AND @DenNgay
+                             GROUP BY CAST(NgayTao AS DATE)
+                             ORDER BY Ngay;";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TuNgay", fromDate);
+                        cmd.Parameters.AddWithValue("@DenNgay", toDate);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                revenueData.Add(Convert.ToDateTime(reader["Ngay"]), Convert.ToDecimal(reader["TongDoanhThu"]));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy dữ liệu báo cáo: " + ex.Message);
+            }
+            return revenueData;
         }
     }
 }

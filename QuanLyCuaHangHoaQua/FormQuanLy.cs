@@ -132,17 +132,36 @@ namespace QuanLyCuaHangHoaQua
 
         private void FormQuanLy_Load(object sender, EventArgs e)
         {
-            LoadDataToGrid();         
+            LoadDataToGrid();
         }
 
         private void dgvDanhSachSP_SelectionChanged(object sender, EventArgs e)
         {
+            // Đã chuyển code đến sự kiện CellClick để xử lý việc hiển thị chi tiết sản phẩm
+        }
+
+        private void txtMoTa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            // Khi người dùng nhập từ khóa tìm kiếm, gọi hàm LoadDataToGrid với từ khóa đó
+            string tuKhoa = txtTimKiem.Text;
+            LoadDataToGrid(tuKhoa);
+        }
+
+        private void dgvDanhSachSP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             // Kiểm tra xem có hàng nào đang được chọn không.
             // Khi không có hàng nào được chọn (ví dụ lúc mới tải form), SelectedRows.Count = 0
-            if (dgvDanhSachSP.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0)
             {
+                // Lấy hàng đang được chọn trong DataGridView
+                DataGridViewRow row = this.dgvDanhSachSP.Rows[e.RowIndex];
                 // Lấy đối tượng HoaQua tương ứng với hàng đang được chọn
-                HoaQua spChon = (HoaQua)dgvDanhSachSP.SelectedRows[0].DataBoundItem;
+                HoaQua spChon = (HoaQua)row.DataBoundItem;
 
                 // Kiểm tra xem đối tượng đó và dữ liệu ảnh của nó có tồn tại không
                 if (spChon != null && spChon.HinhAnh != null)
@@ -160,11 +179,13 @@ namespace QuanLyCuaHangHoaQua
                 }
                 if (spChon != null)
                 {
+                    // Cập nhật các thông tin chi tiết của sản phẩm được chọn
                     lbDetailTenSP.Text = spChon.TenSP;
                     lbDetailGia.Text = "Đơn giá: " + spChon.DonGia.ToString("N0") + " VNĐ";
                     lbDetailXuatXu.Text = "Xuất xứ: " + spChon.XuatXu;
                     lbDetailDVT.Text = "Đơn vị tính: " + spChon.DonViTinh;
                     txtDetailMoTa.Text = spChon.MoTa;
+                    lbDetailSoLuong.Text = "Tồn kho: " + spChon.SoLuongTon.ToString();
                 }
             }
             else
@@ -177,20 +198,19 @@ namespace QuanLyCuaHangHoaQua
                 lbDetailDVT.Text = "Đơn vị tính:";
                 txtDetailMoTa.Text = "";
             }
-
-
         }
 
-        private void txtMoTa_TextChanged(object sender, EventArgs e)
+        private void dgvDanhSachSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        private void btnBaoCao_Click(object sender, EventArgs e)
         {
-            // Khi người dùng nhập từ khóa tìm kiếm, gọi hàm LoadDataToGrid với từ khóa đó
-            string tuKhoa = txtTimKiem.Text;
-            LoadDataToGrid(tuKhoa);
+            // Khi người dùng nhấn nút "Báo cáo doanh thu", mở form báo cáo doanh thu
+            FormBaoCaoDoanhThu formBaoCao = new FormBaoCaoDoanhThu();
+            formBaoCao.Show(); // Dùng Show() để có thể xem báo cáo song song với form chính
+
         }
     }
 }

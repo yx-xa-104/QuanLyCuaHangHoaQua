@@ -1,31 +1,42 @@
 ﻿namespace QuanLyCuaHangHoaQua
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        /// Điểm vào chính của ứng dụng.
-        /// </summary>
+        // Biến tĩnh để lưu thông tin người dùng hiện tại
+        public static NguoiDung NguoiDungHienTai { get; set; }
+
+        // Điểm vào chính của ứng dụng.
         [STAThread]
         static void Main()
         {
+            // Thiết lập các thuộc tính của ứng dụng
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Tạo và hiển thị form đăng nhập
+            // Tạo và hiển thị form đăng nhập trước
             FormDangNhap formLogin = new FormDangNhap();
-            formLogin.ShowDialog(); // Hiển thị dưới dạng Dialog để chặn form chính
+            formLogin.ShowDialog(); // Dùng ShowDialog để chương trình phải chờ form này đóng
 
-            // Sau khi form đăng nhập đóng lại, kiểm tra kết quả
-            if (formLogin.LoginSuccessful)
+            // Sau khi form đăng nhập đóng, kiểm tra xem đã có người dùng được xác thực chưa
+            if (formLogin.NguoiDungDaXacThuc != null)
             {
-                // Nếu đăng nhập thành công, chạy form quản lý
-                Application.Run(new FormQuanLy());
+                // Lưu thông tin người dùng vào biến static toàn cục
+                Program.NguoiDungHienTai = formLogin.NguoiDungDaXacThuc;
+
+                // Bắt đầu phân quyền
+                if (Program.NguoiDungHienTai.IsAdmin) // Nếu là Admin
+                {
+                    // Chạy Form Quản lý
+                    Application.Run(new FormQuanLy());
+                }
+                else // Nếu là người dùng thường
+                {
+                    // Chạy Form Bán hàng
+                    Application.Run(new FormBanHang());
+                }
             }
-            else
-            {
-                // Nếu không thành công (người dùng đóng hoặc nhấn Thoát),
-                // thì không làm gì cả, ứng dụng sẽ tự kết thúc.
-            }
+            // 3. Nếu không có người dùng được xác thực (họ nhấn Thoát hoặc đóng cửa sổ),
+            // hàm Main sẽ kết thúc và ứng dụng sẽ tự đóng lại.
         }
     }
 }

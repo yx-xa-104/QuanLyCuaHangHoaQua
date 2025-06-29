@@ -84,3 +84,7 @@ C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug
 C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\ref\QuanLyCuaHangHoaQua.dll
 C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.Properties.Resources.resources
 C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.FormDangNhap.resources
+C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.FormBanHang.resources
+C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\obj\Debug\net9.0-windows\QuanLyCuaHangHoaQua.FormBaoCaoDoanhThu.resources
+C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\User\Documents\GitHub\QuanLyCuaHangHoaQua\QuanLyCuaHangHoaQua\bin\Debug\net9.0-windows\WinForms.DataVisualization.dll

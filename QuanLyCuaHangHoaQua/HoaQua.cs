@@ -12,11 +12,11 @@ namespace QuanLyCuaHangHoaQua
         // get - đọc và set - sửa các giá trị của thuộc tính
         public string TenSP { get; set; }
         public decimal DonGia { get; set; }
-        public decimal SoLuong { get; set; }
         public string XuatXu { get; set; }
         public string DonViTinh { get; set; }
         public int Id { get; set; }
         public byte[] HinhAnh { get; set; }
         public string MoTa { get; set; }
+        public int SoLuongTon { get; set; }
     }
 }

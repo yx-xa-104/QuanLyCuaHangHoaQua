@@ -43,13 +43,18 @@
             lbDonGia = new Label();
             numDonGia = new NumericUpDown();
             lbTen = new Label();
+            label1 = new Label();
+            numSoLuongTon = new NumericUpDown();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picHinhAnh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numDonGia).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numSoLuongTon).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(numSoLuongTon);
+            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtMoTa);
             groupBox1.Controls.Add(lbMoTa);
             groupBox1.Controls.Add(txtTenHoaQua);
@@ -66,7 +71,7 @@
             groupBox1.Controls.Add(lbTen);
             groupBox1.Location = new Point(12, 13);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(803, 301);
+            groupBox1.Size = new Size(894, 311);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thêm sản phẩm mới";
@@ -74,7 +79,7 @@
             // txtMoTa
             // 
             txtMoTa.BorderStyle = BorderStyle.FixedSingle;
-            txtMoTa.Location = new Point(634, 38);
+            txtMoTa.Location = new Point(772, 38);
             txtMoTa.Multiline = true;
             txtMoTa.Name = "txtMoTa";
             txtMoTa.ScrollBars = ScrollBars.Vertical;
@@ -84,7 +89,7 @@
             // lbMoTa
             // 
             lbMoTa.AutoSize = true;
-            lbMoTa.Location = new Point(634, 19);
+            lbMoTa.Location = new Point(772, 20);
             lbMoTa.Name = "lbMoTa";
             lbMoTa.Size = new Size(41, 15);
             lbMoTa.TabIndex = 12;
@@ -131,7 +136,7 @@
             // lbDonViTinh
             // 
             lbDonViTinh.AutoSize = true;
-            lbDonViTinh.Location = new Point(168, 19);
+            lbDonViTinh.Location = new Point(147, 19);
             lbDonViTinh.Name = "lbDonViTinh";
             lbDonViTinh.Size = new Size(68, 15);
             lbDonViTinh.TabIndex = 2;
@@ -151,7 +156,7 @@
             // 
             cbDonViTinh.FormattingEnabled = true;
             cbDonViTinh.Items.AddRange(new object[] { "Kg", "Quả", "Bó", "Nải" });
-            cbDonViTinh.Location = new Point(168, 37);
+            cbDonViTinh.Location = new Point(147, 37);
             cbDonViTinh.Name = "cbDonViTinh";
             cbDonViTinh.Size = new Size(121, 23);
             cbDonViTinh.TabIndex = 3;
@@ -160,7 +165,7 @@
             // lbXuatXu
             // 
             lbXuatXu.AutoSize = true;
-            lbXuatXu.Location = new Point(496, 19);
+            lbXuatXu.Location = new Point(631, 19);
             lbXuatXu.Name = "lbXuatXu";
             lbXuatXu.Size = new Size(51, 15);
             lbXuatXu.TabIndex = 6;
@@ -169,7 +174,7 @@
             // txtXuatXu
             // 
             txtXuatXu.BorderStyle = BorderStyle.FixedSingle;
-            txtXuatXu.Location = new Point(496, 36);
+            txtXuatXu.Location = new Point(631, 36);
             txtXuatXu.Name = "txtXuatXu";
             txtXuatXu.Size = new Size(100, 23);
             txtXuatXu.TabIndex = 7;
@@ -177,7 +182,7 @@
             // lbDonGia
             // 
             lbDonGia.AutoSize = true;
-            lbDonGia.Location = new Point(323, 19);
+            lbDonGia.Location = new Point(309, 19);
             lbDonGia.Name = "lbDonGia";
             lbDonGia.Size = new Size(86, 15);
             lbDonGia.TabIndex = 4;
@@ -185,7 +190,7 @@
             // 
             // numDonGia
             // 
-            numDonGia.Location = new Point(323, 36);
+            numDonGia.Location = new Point(309, 36);
             numDonGia.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             numDonGia.Name = "numDonGia";
             numDonGia.Size = new Size(120, 23);
@@ -201,11 +206,28 @@
             lbTen.TabIndex = 0;
             lbTen.Text = "Tên hoa quả:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(472, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(78, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Số lượng tồn:";
+            // 
+            // numSoLuongTon
+            // 
+            numSoLuongTon.Location = new Point(470, 34);
+            numSoLuongTon.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numSoLuongTon.Name = "numSoLuongTon";
+            numSoLuongTon.Size = new Size(120, 23);
+            numSoLuongTon.TabIndex = 15;
+            // 
             // FormThemSuaSanPham
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(857, 326);
+            ClientSize = new Size(922, 336);
             Controls.Add(groupBox1);
             Name = "FormThemSuaSanPham";
             Text = "FormThemSuaSanPham";
@@ -215,6 +237,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picHinhAnh).EndInit();
             ((System.ComponentModel.ISupportInitialize)numDonGia).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numSoLuongTon).EndInit();
             ResumeLayout(false);
         }
 
@@ -235,5 +258,7 @@
         private Label lbTen;
         private TextBox txtMoTa;
         private Label lbMoTa;
+        private NumericUpDown numSoLuongTon;
+        private Label label1;
     }
 }

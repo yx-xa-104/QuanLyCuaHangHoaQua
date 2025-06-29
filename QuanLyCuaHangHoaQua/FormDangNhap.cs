@@ -8,11 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace QuanLyCuaHangHoaQua
 {
     public partial class FormDangNhap : Form
     {
+    // Thuộc tính này sẽ chứa thông tin người dùng nếu đăng nhập thành công
+    // và sẽ là null nếu thất bại.
+    public NguoiDung NguoiDungDaXacThuc { get; private set; }
+
+        // Constructor của FormDangNhap
         public FormDangNhap()
         {
             InitializeComponent();
@@ -30,52 +36,51 @@ namespace QuanLyCuaHangHoaQua
             // Lấy tên đăng nhập và mật khẩu từ các TextBox
             string tenDangNhap = txtTenDangNhap.Text.Trim();
             string matKhau = txtMatKhau.Text;
-
             // Kiểm tra xem người dùng đã nhập đầy đủ tên đăng nhập và mật khẩu chưa
             if (string.IsNullOrEmpty(tenDangNhap) || string.IsNullOrEmpty(matKhau))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.");
                 return;
             }
-
-            // Kết nối đến CSDL và kiểm tra thông tin đăng nhập
+            // Kiểm tra định dạng tên đăng nhập
             try
             {
                 NguoiDung user = null;
                 using (SqlConnection conn = Database.GetConnection())
                 {
                     conn.Open();
-                    // Truy vấn để lấy thông tin người dùng dựa trên tên đăng nhập
-                    string query = "SELECT * FROM NguoiDung WHERE TenDangNhap = @tenDN";
+                    // Lấy tất cả các cột cần thiết
+                    string query = "SELECT Id, TenDangNhap, MatKhauHash, HoTen, IsAdmin FROM NguoiDung WHERE TenDangNhap = @tenDN";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Thêm tham số để tránh SQL Injection
                         cmd.Parameters.AddWithValue("@tenDN", tenDangNhap);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read()) // Nếu tìm thấy người dùng
+                            if (reader.Read())
                             {
+                                // Tạo đối tượng NguoiDung với đầy đủ thông tin
                                 user = new NguoiDung
                                 {
+                                    Id = Convert.ToInt32(reader["Id"]),
                                     TenDangNhap = reader["TenDangNhap"].ToString(),
-                                    MatKhauHash = reader["MatKhauHash"].ToString()
+                                    MatKhauHash = reader["MatKhauHash"].ToString(),
+                                    HoTen = reader["HoTen"].ToString(),
+                                    IsAdmin = Convert.ToBoolean(reader["IsAdmin"])
                                 };
                             }
                         }
                     }
                 }
-
                 // Kiểm tra xem người dùng có tồn tại không
                 if (user == null)
                 {
                     MessageBox.Show("Tên đăng nhập không tồn tại.");
                 }
-                // Dùng PasswordHasher để so sánh mật khẩu người dùng nhập với hash trong CSDL
                 else if (PasswordHasher.VerifyPassword(matKhau, user.MatKhauHash))
                 {
-                    MessageBox.Show("Đăng nhập thành công!");
-                    LoginSuccessful = true; // Đánh dấu đăng nhập thành công
-                    this.Close(); // Đóng form đăng nhập lại
+                    // Gán đối tượng user vào thuộc tính công khai
+                    this.NguoiDungDaXacThuc = user;
+                    this.Close(); // Đóng form đăng nhập
                 }
                 else
                 {

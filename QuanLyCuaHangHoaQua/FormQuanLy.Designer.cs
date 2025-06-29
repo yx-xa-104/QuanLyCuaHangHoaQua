@@ -36,6 +36,7 @@
             picPreview = new PictureBox();
             lbPreview = new Label();
             groupBox2 = new GroupBox();
+            lbDetailSoLuong = new Label();
             txtDetailMoTa = new TextBox();
             lbDetailMoTa = new Label();
             lbDetailDVT = new Label();
@@ -44,6 +45,7 @@
             lbDetailTenSP = new Label();
             txtTimKiem = new TextBox();
             label1 = new Label();
+            btnBaoCao = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachSP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picPreview).BeginInit();
             groupBox2.SuspendLayout();
@@ -53,49 +55,55 @@
             // 
             dgvDanhSachSP.AllowUserToAddRows = false;
             dgvDanhSachSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDanhSachSP.BackgroundColor = SystemColors.Control;
             dgvDanhSachSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachSP.Location = new Point(67, 94);
             dgvDanhSachSP.Name = "dgvDanhSachSP";
             dgvDanhSachSP.ReadOnly = true;
-            dgvDanhSachSP.Size = new Size(536, 445);
+            dgvDanhSachSP.Size = new Size(558, 445);
             dgvDanhSachSP.TabIndex = 15;
+            dgvDanhSachSP.CellClick += dgvDanhSachSP_CellClick;
+            dgvDanhSachSP.CellContentClick += dgvDanhSachSP_CellContentClick;
             dgvDanhSachSP.SelectionChanged += dgvDanhSachSP_SelectionChanged;
             // 
             // btnThemMoi
             // 
+            btnThemMoi.BackColor = Color.White;
             btnThemMoi.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemMoi.Location = new Point(67, 12);
+            btnThemMoi.Location = new Point(67, 11);
             btnThemMoi.Name = "btnThemMoi";
-            btnThemMoi.Size = new Size(166, 37);
+            btnThemMoi.Size = new Size(94, 37);
             btnThemMoi.TabIndex = 16;
-            btnThemMoi.Text = "Thêm sản phẩm";
-            btnThemMoi.UseVisualStyleBackColor = true;
+            btnThemMoi.Text = "Thêm SP";
+            btnThemMoi.UseVisualStyleBackColor = false;
             btnThemMoi.Click += btnThemMoi_Click;
             // 
             // btnSua
             // 
+            btnSua.BackColor = Color.White;
             btnSua.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSua.Location = new Point(276, 12);
+            btnSua.Location = new Point(216, 12);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(142, 37);
+            btnSua.Size = new Size(94, 37);
             btnSua.TabIndex = 17;
-            btnSua.Text = "Sửa sản phẩm";
-            btnSua.UseVisualStyleBackColor = true;
+            btnSua.Text = "Sửa SP";
+            btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
             btnXoa.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(461, 12);
+            btnXoa.Location = new Point(365, 12);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(141, 37);
+            btnXoa.Size = new Size(94, 37);
             btnXoa.TabIndex = 18;
-            btnXoa.Text = "Xoá sản phẩm";
+            btnXoa.Text = "Xoá SP";
             btnXoa.UseVisualStyleBackColor = true;
             btnXoa.Click += btnXoa_Click;
             // 
             // picPreview
             // 
+            picPreview.BackColor = Color.Transparent;
             picPreview.BorderStyle = BorderStyle.FixedSingle;
             picPreview.Location = new Point(680, 94);
             picPreview.Name = "picPreview";
@@ -116,6 +124,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(lbDetailSoLuong);
             groupBox2.Controls.Add(txtDetailMoTa);
             groupBox2.Controls.Add(lbDetailMoTa);
             groupBox2.Controls.Add(lbDetailDVT);
@@ -130,17 +139,26 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin chi tiết:";
             // 
+            // lbDetailSoLuong
+            // 
+            lbDetailSoLuong.AutoSize = true;
+            lbDetailSoLuong.Location = new Point(6, 145);
+            lbDetailSoLuong.Name = "lbDetailSoLuong";
+            lbDetailSoLuong.Size = new Size(76, 21);
+            lbDetailSoLuong.TabIndex = 6;
+            lbDetailSoLuong.Text = "Tồn kho:";
+            // 
             // txtDetailMoTa
             // 
             txtDetailMoTa.BackColor = SystemColors.Window;
             txtDetailMoTa.BorderStyle = BorderStyle.FixedSingle;
             txtDetailMoTa.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDetailMoTa.Location = new Point(6, 181);
+            txtDetailMoTa.Location = new Point(6, 199);
             txtDetailMoTa.Multiline = true;
             txtDetailMoTa.Name = "txtDetailMoTa";
             txtDetailMoTa.ReadOnly = true;
             txtDetailMoTa.ScrollBars = ScrollBars.Vertical;
-            txtDetailMoTa.Size = new Size(299, 70);
+            txtDetailMoTa.Size = new Size(299, 52);
             txtDetailMoTa.TabIndex = 5;
             txtDetailMoTa.TextChanged += txtMoTa_TextChanged;
             // 
@@ -148,7 +166,7 @@
             // 
             lbDetailMoTa.AutoSize = true;
             lbDetailMoTa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailMoTa.Location = new Point(6, 157);
+            lbDetailMoTa.Location = new Point(6, 175);
             lbDetailMoTa.Name = "lbDetailMoTa";
             lbDetailMoTa.Size = new Size(136, 21);
             lbDetailMoTa.TabIndex = 4;
@@ -158,7 +176,7 @@
             // 
             lbDetailDVT.AutoSize = true;
             lbDetailDVT.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailDVT.Location = new Point(6, 124);
+            lbDetailDVT.Location = new Point(6, 115);
             lbDetailDVT.Name = "lbDetailDVT";
             lbDetailDVT.Size = new Size(99, 21);
             lbDetailDVT.TabIndex = 3;
@@ -168,7 +186,7 @@
             // 
             lbDetailXuatXu.AutoSize = true;
             lbDetailXuatXu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailXuatXu.Location = new Point(6, 91);
+            lbDetailXuatXu.Location = new Point(6, 85);
             lbDetailXuatXu.Name = "lbDetailXuatXu";
             lbDetailXuatXu.Size = new Size(73, 21);
             lbDetailXuatXu.TabIndex = 2;
@@ -178,7 +196,7 @@
             // 
             lbDetailGia.AutoSize = true;
             lbDetailGia.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDetailGia.Location = new Point(6, 58);
+            lbDetailGia.Location = new Point(6, 55);
             lbDetailGia.Name = "lbDetailGia";
             lbDetailGia.Size = new Size(39, 21);
             lbDetailGia.TabIndex = 1;
@@ -200,7 +218,7 @@
             txtTimKiem.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTimKiem.Location = new Point(209, 54);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(393, 33);
+            txtTimKiem.Size = new Size(416, 33);
             txtTimKiem.TabIndex = 23;
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
@@ -217,11 +235,23 @@
             label1.TabIndex = 24;
             label1.Text = "     Tìm kiếm";
             // 
+            // btnBaoCao
+            // 
+            btnBaoCao.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBaoCao.Location = new Point(514, 13);
+            btnBaoCao.Name = "btnBaoCao";
+            btnBaoCao.Size = new Size(111, 36);
+            btnBaoCao.TabIndex = 25;
+            btnBaoCao.Text = "Doanh thu";
+            btnBaoCao.UseVisualStyleBackColor = true;
+            btnBaoCao.Click += btnBaoCao_Click;
+            // 
             // FormQuanLy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1045, 594);
+            ClientSize = new Size(1045, 560);
+            Controls.Add(btnBaoCao);
             Controls.Add(label1);
             Controls.Add(txtTimKiem);
             Controls.Add(groupBox2);
@@ -259,5 +289,7 @@
         private TextBox txtDetailMoTa;
         private TextBox txtTimKiem;
         private Label label1;
+        private Label lbDetailSoLuong;
+        private Button btnBaoCao;
     }
 }

@@ -3,36 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formthemsuasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formthemsuasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formbaocaodoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formbaocaodoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|c:\\users\\user\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,44 +42,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "FormQuanLy.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
               "RelativeDocumentMoniker": "FormQuanLy.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs [Design]",
               "RelativeToolTip": "FormQuanLy.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:24:23.847Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormThemSuaSanPham.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormThemSuaSanPham.cs",
-              "RelativeDocumentMoniker": "FormThemSuaSanPham.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormThemSuaSanPham.cs [Design]",
-              "RelativeToolTip": "FormThemSuaSanPham.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:24:30.071Z",
+              "WhenOpened": "2025-06-28T16:24:19.886Z",
               "IsPinned": true,
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormDangNhap.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs",
-              "RelativeDocumentMoniker": "FormDangNhap.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs [Design]",
-              "RelativeToolTip": "FormDangNhap.cs [Design]",
+              "Title": "FormBanHang.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBanHang.cs",
+              "RelativeDocumentMoniker": "FormBanHang.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBanHang.cs [Design]",
+              "RelativeToolTip": "FormBanHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T14:54:25.275Z",
+              "WhenOpened": "2025-06-28T15:21:46.407Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormBaoCaoDoanhThu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBaoCaoDoanhThu.cs",
+              "RelativeDocumentMoniker": "FormBaoCaoDoanhThu.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBaoCaoDoanhThu.cs [Design]",
+              "RelativeToolTip": "FormBaoCaoDoanhThu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T16:09:35.153Z",
               "IsPinned": true,
               "EditorCaption": " [Design]"
             },
@@ -89,67 +89,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:03:15.477Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FormDangNhap.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs",
               "RelativeDocumentMoniker": "FormDangNhap.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs",
               "RelativeToolTip": "FormDangNhap.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwEMAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAwE8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:00:25.129Z",
+              "WhenOpened": "2025-06-28T16:43:58.523Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PasswordHasher.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\PasswordHasher.cs",
-              "RelativeDocumentMoniker": "PasswordHasher.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\PasswordHasher.cs",
-              "RelativeToolTip": "PasswordHasher.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAjwB8AAAApAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "FormDangNhap.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs",
+              "RelativeDocumentMoniker": "FormDangNhap.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs [Design]",
+              "RelativeToolTip": "FormDangNhap.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T14:50:11.1Z",
+              "WhenOpened": "2025-06-28T16:43:52.124Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAuwCEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T16:42:24.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
+              "RelativeDocumentMoniker": "Database.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
+              "RelativeToolTip": "Database.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAYwE8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T16:22:06.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "NguoiDung.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\NguoiDung.cs",
-              "RelativeDocumentMoniker": "NguoiDung.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\NguoiDung.cs",
-              "RelativeToolTip": "NguoiDung.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "Title": "ChiTietHoaDon.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\ChiTietHoaDon.cs",
+              "RelativeDocumentMoniker": "ChiTietHoaDon.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\ChiTietHoaDon.cs",
+              "RelativeToolTip": "ChiTietHoaDon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T14:49:35.487Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormQuanLy.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
-              "RelativeDocumentMoniker": "FormQuanLy.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
-              "RelativeToolTip": "FormQuanLy.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAqwIYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T16:05:30.33Z",
+              "WhenOpened": "2025-06-28T15:11:48.879Z",
               "EditorCaption": ""
             }
           ]

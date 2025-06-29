@@ -62,6 +62,7 @@ namespace QuanLyCuaHangHoaQua
                 numDonGia.Value = _sanPhamDangSua.DonGia; // Hiển thị đơn giá
                 txtXuatXu.Text = _sanPhamDangSua.XuatXu; // Hiển thị xuất xứ
                 txtMoTa.Text = _sanPhamDangSua.MoTa; // Hiển thị mô tả sản phẩm
+                numSoLuongTon.Value = _sanPhamDangSua.SoLuongTon; // Hiển thị số lượng tồn kho
 
 
                 // Chuyển đổi mảng byte HinhAnh thành hình ảnh và hiển thị trong PictureBox
@@ -99,7 +100,6 @@ namespace QuanLyCuaHangHoaQua
         {
 
         }
-
 
         private void FormThemSuaSanPham_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -152,7 +152,7 @@ namespace QuanLyCuaHangHoaQua
                         conn.Open();
 
                         // Chuẩn bị câu lệnh SQL để cập nhật sản phẩm
-                        string query = "UPDATE SanPham " + "SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu, HinhAnh = @hinhAnh, MoTa = @moTa WHERE Id = @id";
+                        string query = "UPDATE SanPham " + "SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu, HinhAnh = @hinhAnh, MoTa = @moTa, SoLuongTon = @soLuongTon WHERE Id = @id";
 
                         // Tạo đối tượng SqlCommand với câu lệnh SQL và kết nối
                         using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -164,6 +164,7 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
                             cmd.Parameters.AddWithValue("@hinhAnh", ImageToByteArray(picHinhAnh.Image));
                             cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
+                            cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
 
                             // Tham số cho mệnh đề WHERE, lấy từ đối tượng đang sửa
                             cmd.Parameters.AddWithValue("@id", _sanPhamDangSua.Id);
@@ -198,7 +199,7 @@ namespace QuanLyCuaHangHoaQua
                     {
                         // Mở kết nối đến cơ sở dữ liệu
                         conn.Open();
-                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa) VALUES (@tenSP, @donViTinh, @donGia, @xuatXu, @hinhAnh, @moTa)";
+                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon) VALUES (@tenSP, @donViTinh, @donGia, @xuatXu, @hinhAnh, @moTa, @soLuongTon)";
                         // Chuẩn bị câu lệnh SQL để thêm sản phẩm mới
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
@@ -209,6 +210,7 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
                             cmd.Parameters.AddWithValue("@hinhAnh", ImageToByteArray(picHinhAnh.Image));
                             cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
+                            cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
                             int result = cmd.ExecuteNonQuery(); // Thực thi câu lệnh SQL
 
                             // Kiểm tra kết quả trả về từ câu lệnh SQL
