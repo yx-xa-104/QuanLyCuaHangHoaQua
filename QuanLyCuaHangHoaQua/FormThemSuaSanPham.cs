@@ -16,251 +16,100 @@ namespace QuanLyCuaHangHoaQua
 {
     public partial class FormThemSuaSanPham : Form
     {
-        // Giải thích
-        // Value Changed event của NumericUpDown
-        // SelectedIndexChanged event của ComboBox
-        // Form Closing event của Form
+        // Danh sách này được truyền từ FormQuanLy, chứa toàn bộ sản phẩm để điều hướng
+        private List<HoaQua> _toanBoDanhSachSP;
 
-        /* Xác thực dữ liệu vào (Validation - Xác thực dữ liệu đầu vào)
-           Các loại điều kiện phổ biến:
-        - textBox không được để trống
-        - NumericUpDown phải lớn hơn 0
-        - ComboBox phải có giá trị được chọn
-        - PictureBox phải có hình ảnh được chọn (nếu có)
-        - Các điều kiện khác tùy theo yêu cầu của ứng dụng
-        */
+        // Biến này lưu vị trí (index) của sản phẩm đang được hiển thị trong danh sách trên
+        // Nó là "bộ não" quyết định form đang ở chế độ Thêm hay Sửa.
+        // -1: Chế độ Thêm mới
+        // >=0: Chế độ Sửa, và là vị trí của sản phẩm trong _toanBoDanhSachSP
+        private int _viTriHienTai = -1;
 
-        // List<T> là một kiểu dữ liệu trong C# dùng để lưu trữ danh sách các đối tượng cùng loại - 1 mảng động
-
-        // Data grid view là một Control dùng để hiển thị dữ liệu dạng bảng trong ứng dụng Windows Forms
-        // Data grid view có thể hiển thị dữ liệu từ các nguồn khác nhau như List<T>, DataTable, Database, v.v.
-        // Data binding là quá trình kết nối dữ liệu từ nguồn dữ liệu với Data grid view để hiển thị
-
-        // Danh sách lưu trữ các đối tượng HoaQua
-        List<HoaQua> danhSachHoaQua = new List<HoaQua>();
-
-        private HoaQua _sanPhamDangSua = null;
-        private List<HoaQua> _danhSachSP;
+        // Lưu đường dẫn của file ảnh mới được người dùng chọn
         private string _duongDanAnhDuocChon = null;
 
-        // Constructor này sẽ được gọi từ FormQuanLy
-        public FormThemSuaSanPham(List<HoaQua> danhSach, HoaQua spCanSua = null)
+        // LỐI VÀO 1: Dành cho chức năng THÊM MỚI SẢN PHẨM.
+        // Không cần tham số. _viTriHienTai sẽ giữ nguyên giá trị -1.
+        public FormThemSuaSanPham()
         {
             InitializeComponent();
-            _danhSachSP = danhSach; // Lưu lại tham chiếu đến danh sách gốc
-            _sanPhamDangSua = spCanSua; // Lưu lại sản phẩm đang sửa (nếu có)
         }
 
+        // LỐI VÀO 2: Dành cho chức năng SỬA SẢN PHẨM.
+        // Yêu cầu danh sách sản phẩm và vị trí bắt đầu để điều hướng.
+        public FormThemSuaSanPham(List<HoaQua> danhSach, int viTriBatDau)
+        {
+            InitializeComponent();
+            _toanBoDanhSachSP = danhSach;
+            _viTriHienTai = viTriBatDau;
+        }
+
+        // Sự kiện được kích hoạt ngay khi form được tải lên.
+        // Sẽ kiểm tra xem đang ở chế độ Thêm hay Sửa để cấu hình giao diện phù hợp.
         private void FormThemSuaSanPham_Load(object sender, EventArgs e)
         {
-            if (_sanPhamDangSua != null) // Kiểm tra xem có sản phẩm nào đang được sửa không
+            if (_viTriHienTai != -1) // Chế độ SỬA
             {
                 this.Text = "Chỉnh sửa thông tin sản phẩm";
                 btnLuu.Text = "Cập nhật";
 
-                txtTenHoaQua.Text = _sanPhamDangSua.TenSP; // Hiển thị tên sản phẩm
-                cbDonViTinh.Text = _sanPhamDangSua.DonViTinh; // Hiển thị đơn vị tính
-                numDonGia.Value = _sanPhamDangSua.DonGia; // Hiển thị đơn giá
-                txtXuatXu.Text = _sanPhamDangSua.XuatXu; // Hiển thị xuất xứ
-                txtMoTa.Text = _sanPhamDangSua.MoTa; // Hiển thị mô tả sản phẩm
-                numSoLuongTon.Value = _sanPhamDangSua.SoLuongTon; // Hiển thị số lượng tồn kho
-                _duongDanAnhDuocChon = _sanPhamDangSua.HinhAnh;
+                // Hiển thị và cấu hình cho các control của chế độ Sửa
+                dgvDanhSachDieuHuong.DataSource = _toanBoDanhSachSP;
+                // Tùy chỉnh các cột cho danh sách điều hướng trông gọn gàng
+                dgvDanhSachDieuHuong.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
+                dgvDanhSachDieuHuong.Columns["Id"].Width = 50;
+                dgvDanhSachDieuHuong.Columns["DonGia"].Visible = false;
+                dgvDanhSachDieuHuong.Columns["DonViTinh"].Visible = false;
+                dgvDanhSachDieuHuong.Columns["XuatXu"].Visible = false;
+                dgvDanhSachDieuHuong.Columns["HinhAnh"].Visible = false;
+                dgvDanhSachDieuHuong.Columns["MoTa"].Visible = false;
+                dgvDanhSachDieuHuong.Columns["SoLuongTon"].Visible = false;
 
-                // Hiển thị hình ảnh nếu có
-                if (!string.IsNullOrEmpty(_duongDanAnhDuocChon) && File.Exists(_duongDanAnhDuocChon))
-                {
-                    picHinhAnh.Image = Image.FromFile(_duongDanAnhDuocChon);
-                }
+                // Hiển thị sản phẩm ban đầu
+                HienThiSanPham(_viTriHienTai);
+            }
+            else // Chế độ THÊM MỚI
+            {
+                this.Text = "Thêm sản phẩm mới";
+                btnLuu.Text = "Lưu lại";
 
-
+                // Ẩn các control không cần thiết cho việc Thêm mới
+                dgvDanhSachDieuHuong.Visible = false;
+                // Thay đổi kích thước SplitContainer để panel chi tiết chiếm toàn bộ form
+                splitContainer1.Panel1Collapsed = true;
             }
         }
 
-        private void ClearForm()
+        // Phương thức trung tâm, hiển thị thông tin của một sản phẩm
+        // tại một vị trí (index) cụ thể lên các control.
+        private void HienThiSanPham(int index)
         {
-            // Xóa dữ liệu trên các Control trong form
-            txtTenHoaQua.Clear(); // Xóa TextBox tên hoa quả
-            cbDonViTinh.SelectedIndex = -1; // Đặt ComboBox về trạng thái chưa chọn
-            numDonGia.Value = 0; // Đặt giá trị NumericUpDown về 0
-            txtXuatXu.Clear(); // Xóa TextBox xuất xứ
-            picHinhAnh.Image = null; // Xóa hình ảnh trong PictureBox
-            lbCharCount.Text = "0 ký tự"; // Đặt lại số lượng ký tự về 0
-            txtTenHoaQua.Focus(); // Đặt con trỏ vào TextBox tên hoa quả
-        }
+            // Lấy sản phẩm từ danh sách
+            HoaQua sp = _toanBoDanhSachSP[index];
 
-        private void picHinhAnh_Click(object sender, EventArgs e)
-        {
+            // Điền thông tin vào các control
+            txtTenHoaQua.Text = sp.TenSP;
+            cbDonViTinh.Text = sp.DonViTinh;
+            numDonGia.Value = sp.DonGia;
+            numSoLuongTon.Value = Math.Max(0, sp.SoLuongTon); // Dùng Math.Max để phòng trường hợp dữ liệu âm
+            txtXuatXu.Text = sp.XuatXu;
+            txtMoTa.Text = sp.MoTa;
+            _duongDanAnhDuocChon = sp.HinhAnh; // Cập nhật đường dẫn ảnh hiện tại
 
-        }
-
-        private void cbDonViTinh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormThemSuaSanPham_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+            // Hiển thị ảnh (nếu có và file tồn tại)
+            if (!string.IsNullOrEmpty(sp.HinhAnh) && File.Exists(sp.HinhAnh))
             {
-                // Nếu người dùng chọn No, hủy bỏ việc đóng form
-                e.Cancel = true;
+                picHinhAnh.Image = Image.FromFile(sp.HinhAnh);
             }
             else
             {
-                // Nếu người dùng chọn Yes, cho phép đóng form
-                MessageBox.Show("Cảm ơn bạn đã sử dụng ứng dụng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            // Kiểm tra các điều kiện xác thực dữ liệu đầu vào
-            // 1. Kiểm tra tên hoa quả không được để trống
-            if (string.IsNullOrWhiteSpace(txtTenHoaQua.Text))
-            {
-                MessageBox.Show("Tên hoa quả không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTenHoaQua.Focus(); // Đặt con trỏ vào TextBox
-                return; // Dừng thực hiện nếu có lỗi
+                picHinhAnh.Image = null;
             }
 
-            // 2. Kiểm tra đơn vị tính đã được chọn
-            if (cbDonViTinh.SelectedIndex < 0)
-            {
-                MessageBox.Show("Vui lòng chọn đơn vị tính!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cbDonViTinh.Focus(); // Đặt con trỏ vào ComboBox
-                return; // Dừng thực hiện nếu có lỗi
-            }
-
-            // 3. Kiểm tra đơn giá phải lớn hơn 0
-            if (numDonGia.Value <= 0)
-            {
-                MessageBox.Show("Đơn giá phải lớn hơn 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                numDonGia.Focus(); // Đặt con trỏ vào NumericUpDown
-                return; // Dừng thực hiện nếu có lỗi
-            }
-
-            if (_sanPhamDangSua != null) // Chế độ sửa sản phẩm
-            {
-                try
-                {
-                    using (SqlConnection conn = Database.GetConnection())
-                    {
-                        conn.Open();
-
-                        // Chuẩn bị câu lệnh SQL để cập nhật sản phẩm
-                        string query = "UPDATE SanPham " + "SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu, HinhAnh = @hinhAnh, MoTa = @moTa, SoLuongTon = @soLuongTon WHERE Id = @id";
-
-                        // Tạo đối tượng SqlCommand với câu lệnh SQL và kết nối
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            //  Gắn giá trị vào các tham số
-                            cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
-                            cmd.Parameters.AddWithValue("@donViTinh", cbDonViTinh.Text);
-                            cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
-                            cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
-                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
-                            cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
-                            cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
-
-                            // Tham số cho mệnh đề WHERE, lấy từ đối tượng đang sửa
-                            cmd.Parameters.AddWithValue("@id", _sanPhamDangSua.Id);
-
-                            // Thực thi câu lệnh
-                            int result = cmd.ExecuteNonQuery();
-
-                            // Kiểm tra kết quả và thông báo
-                            if (result > 0)
-                            {
-                                MessageBox.Show("Cập nhật sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                // Trường hợp này hiếm khi xảy ra nếu logic đúng
-                                MessageBox.Show("Cập nhật thất bại. Không có sản phẩm nào được tìm thấy với ID này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else // Chế độ thêm sản phẩm mới
-            {
-                try
-                {
-                    // Kiểm tra kết nối đến cơ sở dữ liệu và thực hiện thêm sản phẩm mới
-                    using (SqlConnection conn = Database.GetConnection())
-                    {
-                        // Mở kết nối đến cơ sở dữ liệu
-                        conn.Open();
-                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon) VALUES (@tenSP, @donViTinh, @donGia, @xuatXu, @hinhAnh, @moTa, @soLuongTon)";
-                        // Chuẩn bị câu lệnh SQL để thêm sản phẩm mới
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            // Gắn giá trị vào các tham số
-                            cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
-                            cmd.Parameters.AddWithValue("@donVitinh", cbDonViTinh.Text);
-                            cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
-                            cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
-                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
-                            cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
-                            cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
-                            int result = cmd.ExecuteNonQuery(); // Thực thi câu lệnh SQL
-
-                            // Kiểm tra kết quả trả về từ câu lệnh SQL
-                            if (result > 0)
-                            {
-
-                                MessageBox.Show("Thêm sản phẩm mới thành công!", " Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                
-                            }
-                            else
-                            {
-                                MessageBox.Show("Thêm sản phẩm mới thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm sản phẩm mới: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Dừng thực hiện nếu có lỗi
-                }
-            }
-            this.Close(); // Đóng form sau khi lưu thành công
-
-            // Lấy thông tin từ các Control trên form
-            string tenQua = txtTenHoaQua.Text.Trim();
-            string donViTinh = cbDonViTinh.Text.Trim();
-
-            // Lấy giá trị từ NumericUpDown, đảm bảo không null
-            decimal donGia = numDonGia.Value;
-            donGia = donGia - 10000; // Giảm giá 10.000 VNĐ
-            numDonGia.Value = donGia; // Cập nhật lại giá trị trong NumericUpDown
-
-            string xuatXu = txtXuatXu.Text.Trim();
-
-            ClearForm();
-
-            // Dựng chuỗi thông tin để hiển thị
-            string thongTin = "Thông tin sản phẩm đã thu thập: \n" +
-                "____________________________________________________\n" +
-                "Tên: " + tenQua + "\n" +
-                "Đơn vị tính: " + donViTinh + "\n" +
-                "Đơn giá: " + donGia.ToString("N0") + " VNĐ\n" + // "N0" định dạng số với dấu phân cách hàng nghìn
-                "Xuất xứ: " + xuatXu;
-        }
-
-        private void txtTenHoaQua_TextChanged(object sender, EventArgs e)
-        {
-            // Cập nhật số lượng ký tự trong TextBox
-            int count = txtTenHoaQua.Text.Length;
-
-            // Hiển thị số lượng ký tự trong Label
-            lbCharCount.Text = count.ToString() + " ký tự";
+            // Đồng bộ lựa chọn trên DataGridView điều hướng
+            dgvDanhSachDieuHuong.ClearSelection();
+            dgvDanhSachDieuHuong.Rows[index].Selected = true;
+            dgvDanhSachDieuHuong.FirstDisplayedScrollingRowIndex = index;
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -270,17 +119,131 @@ namespace QuanLyCuaHangHoaQua
 
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                // Lưu đường dẫn file người dùng đã chọn vào biến thành viên
                 _duongDanAnhDuocChon = openFile.FileName;
-
-                // Hiển thị ảnh preview lên PictureBox
                 picHinhAnh.Image = Image.FromFile(_duongDanAnhDuocChon);
             }
-        }    
+        }
 
-        private void cbDonViTinh_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void btnLuu_Click(object sender, EventArgs e)
         {
+            // Validation
+            if (string.IsNullOrWhiteSpace(txtTenHoaQua.Text))
+            {
+                MessageBox.Show("Tên hoa quả không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenHoaQua.Focus();
+                return;
+            }
+            if (cbDonViTinh.SelectedIndex == -1)
+            {
+                MessageBox.Show("Bạn chưa chọn đơn vị tính!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbDonViTinh.Focus();
+                return;
+            }
 
+            if (_viTriHienTai != -1) // Chế độ SỬA
+            {
+                HoaQua spCanSua = _toanBoDanhSachSP[_viTriHienTai];
+                try
+                {
+                    using (SqlConnection conn = Database.GetConnection())
+                    {
+                        conn.Open();
+                        string query = "UPDATE SanPham SET TenSP = @tenSP, DonViTinh = @donViTinh, DonGia = @donGia, XuatXu = @xuatXu, HinhAnh = @hinhAnh, MoTa = @moTa, SoLuongTon = @soLuongTon WHERE Id = @id";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
+                            cmd.Parameters.AddWithValue("@donViTinh", cbDonViTinh.Text);
+                            cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
+                            cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
+                            cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
+                            cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
+                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
+                            cmd.Parameters.AddWithValue("@id", spCanSua.Id);
+
+                            if (cmd.ExecuteNonQuery() > 0)
+                            {
+                                // Cập nhật lại đối tượng trong List để giao diện được đồng bộ ngay lập tức
+                                spCanSua.TenSP = txtTenHoaQua.Text;
+                                spCanSua.DonViTinh = cbDonViTinh.Text;
+                                spCanSua.DonGia = numDonGia.Value;
+                                spCanSua.SoLuongTon = (int)numSoLuongTon.Value;
+                                spCanSua.XuatXu = txtXuatXu.Text;
+                                spCanSua.MoTa = txtMoTa.Text;
+                                spCanSua.HinhAnh = _duongDanAnhDuocChon;
+
+                                MessageBox.Show("Cập nhật thành công!");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật sản phẩm: " + ex.Message);
+                }
+            }
+            else // Chế độ THÊM MỚI
+            {
+                try
+                {
+                    using (SqlConnection conn = Database.GetConnection())
+                    {
+                        conn.Open();
+                        string query = "INSERT INTO SanPham (TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon) VALUES (@tenSP, @donViTinh, @donGia, @xuatXu, @hinhAnh, @moTa, @soLuongTon)";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@tenSP", txtTenHoaQua.Text);
+                            cmd.Parameters.AddWithValue("@donViTinh", cbDonViTinh.Text);
+                            cmd.Parameters.AddWithValue("@donGia", numDonGia.Value);
+                            cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
+                            cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
+                            cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
+                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
+
+                            if (cmd.ExecuteNonQuery() > 0)
+                            {
+                                MessageBox.Show("Thêm sản phẩm mới thành công!");
+                                this.Close(); // Đóng form Thêm mới sau khi thành công
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi thêm sản phẩm: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (_viTriHienTai > 0)
+            {
+                _viTriHienTai--;
+                HienThiSanPham(_viTriHienTai);
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (_viTriHienTai < _toanBoDanhSachSP.Count - 1)
+            {
+                _viTriHienTai++;
+                HienThiSanPham(_viTriHienTai);
+            }
+        }
+
+        private void dgvDanhSachDieuHuong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                _viTriHienTai = e.RowIndex;
+                HienThiSanPham(_viTriHienTai);
+            }
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

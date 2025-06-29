@@ -38,7 +38,7 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            FormThemSuaSanPham formThem = new FormThemSuaSanPham(danhSachHoaQua);
+            FormThemSuaSanPham formThem = new FormThemSuaSanPham(danhSachHoaQua, -1);
 
             // Mở form dưới dạng Dialog
             formThem.ShowDialog();
@@ -51,18 +51,18 @@ namespace QuanLyCuaHangHoaQua
         {
             if (dgvDanhSachSP.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm cần sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn sản phẩm cần sửa.");
                 return;
             }
 
-            // Lấy sản phẩm đang được chọn trong DataGridView
-            HoaQua spChon = (HoaQua)dgvDanhSachSP.SelectedRows[0].DataBoundItem;
+            // Lấy VỊ TRÍ (INDEX) của hàng đang được chọn
+            int viTriChon = dgvDanhSachSP.SelectedRows[0].Index;
 
-            // Mở form sửa sản phẩm và truyền danh sách hoa quả cùng sản phẩm được chọn
-            FormThemSuaSanPham formSua = new FormThemSuaSanPham(danhSachHoaQua, spChon);
+            // Tạo form sửa và truyền toàn bộ danh sách cùng với vị trí bắt đầu
+            FormThemSuaSanPham formSua = new FormThemSuaSanPham(danhSachHoaQua, viTriChon);
 
-            // Mở form dưới dạng Dialog
             formSua.ShowDialog();
+
             LoadDataToGrid();
         }
 

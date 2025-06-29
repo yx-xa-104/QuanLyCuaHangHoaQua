@@ -22,29 +22,27 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnThemVaoGio_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra xem người dùng đã chọn sản phẩm nào chưa
+            // Kiểm tra xem người dùng đã chọn sản phẩm nào chưa
+            HoaQua spChon = (HoaQua)dgvChonSP.SelectedRows[0].DataBoundItem;           
+            // Kiểm tra xem người dùng đã chọn sản phẩm nào chưa
             if (dgvChonSP.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm để thêm vào giỏ!");
                 return;
             }
             int soLuongMua = (int)numSoLuongMua.Value;
-            if (soLuongMua <= 0)
+            if (soLuongMua > spChon.SoLuongTon)
             {
-                MessageBox.Show("Số lượng mua phải lớn hơn 0!");
-                return;
+                MessageBox.Show("Số lượng tồn kho không đủ để bán!");
+                return; // Dừng lại, không cho thêm vào giỏ
             }
-
-            // 2. Lấy thông tin sản phẩm được chọn
-            HoaQua spChon = (HoaQua)dgvChonSP.SelectedRows[0].DataBoundItem;
-
             if (soLuongMua > spChon.SoLuongTon)
             {
                 MessageBox.Show("Số lượng tồn kho không đủ!");
                 return;
             }
 
-            // 3. Thêm sản phẩm vào giỏ hàng
+            // Thêm sản phẩm vào giỏ hàng
             // Kiểm tra xem sản phẩm này đã có trong giỏ chưa
             ChiTietHoaDon itemInCart = gioHang.FirstOrDefault(item => item.IdSanPham == spChon.Id);
 
@@ -67,7 +65,7 @@ namespace QuanLyCuaHangHoaQua
                 gioHang.Add(chiTietMoi);
             }
 
-            // 4. Cập nhật lại giao diện
+            // Cập nhật lại giao diện
             LoadGioHang();
             UpdateTongTien();
         }

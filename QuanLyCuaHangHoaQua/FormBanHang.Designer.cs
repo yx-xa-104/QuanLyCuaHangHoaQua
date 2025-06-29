@@ -48,6 +48,7 @@
             // 
             // txtTimKiemSP
             // 
+            txtTimKiemSP.BackColor = SystemColors.Control;
             txtTimKiemSP.BorderStyle = BorderStyle.FixedSingle;
             txtTimKiemSP.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTimKiemSP.Location = new Point(12, 12);
@@ -76,6 +77,7 @@
             // 
             // dgvGioHang
             // 
+            dgvGioHang.BackgroundColor = SystemColors.Control;
             dgvGioHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGioHang.Location = new Point(553, 47);
             dgvGioHang.Name = "dgvGioHang";
