@@ -42,7 +42,6 @@ namespace QuanLyCuaHangHoaQua
                 return;
             }
 
-            // Thêm sản phẩm vào giỏ hàng
             // Kiểm tra xem sản phẩm này đã có trong giỏ chưa
             ChiTietHoaDon itemInCart = gioHang.FirstOrDefault(item => item.IdSanPham == spChon.Id);
 
@@ -90,6 +89,26 @@ namespace QuanLyCuaHangHoaQua
         {
             dgvGioHang.DataSource = null;
             dgvGioHang.DataSource = gioHang;
+
+            // Tự động điều chỉnh độ rộng cột để lấp đầy DataGridView
+            dgvGioHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Ẩn các cột không cần thiết
+            if (dgvGioHang.Columns["Id"] != null) dgvGioHang.Columns["Id"].Visible = false;
+            if (dgvGioHang.Columns["IdHoaDon"] != null) dgvGioHang.Columns["IdHoaDon"].Visible = false;
+            if (dgvGioHang.Columns["IdSanPham"] != null) dgvGioHang.Columns["IdSanPham"].Visible = false;
+            
+            if (dgvGioHang.Columns["TenSP"] != null) dgvGioHang.Columns["TenSP"].HeaderText = "Tên Sản Phẩm";
+            if (dgvGioHang.Columns["DonViTinh"] != null) dgvGioHang.Columns["DonViTinh"].HeaderText = "ĐVT";
+            if (dgvGioHang.Columns["SoLuong"] != null) dgvGioHang.Columns["SoLuong"].HeaderText = "Số Lượng";
+            if (dgvGioHang.Columns["DonGiaTaiThoiDiemBan"] != null) dgvGioHang.Columns["DonGiaTaiThoiDiemBan"].HeaderText = "Đơn Giá";
+            if (dgvGioHang.Columns["ThanhTien"] != null) dgvGioHang.Columns["ThanhTien"].HeaderText = "Thành Tiền";
+
+            // Định dạng cho cột tiền tệ
+            if (dgvGioHang.Columns["DonGiaTaiThoiDiemBan"] != null)
+                dgvGioHang.Columns["DonGiaTaiThoiDiemBan"].DefaultCellStyle.Format = "N0";
+            if (dgvGioHang.Columns["ThanhTien"] != null)
+                dgvGioHang.Columns["ThanhTien"].DefaultCellStyle.Format = "N0";
         }
         private void UpdateTongTien()
         {

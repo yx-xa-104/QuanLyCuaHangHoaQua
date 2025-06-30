@@ -137,7 +137,44 @@ namespace QuanLyCuaHangHoaQua
 
         private void dgvDanhSachSP_SelectionChanged(object sender, EventArgs e)
         {
-            // Đã chuyển code đến sự kiện CellClick để xử lý việc hiển thị chi tiết sản phẩm
+            if (dgvDanhSachSP.SelectedRows.Count > 0)
+            {
+                // Lấy hàng đang được chọn trong DataGridView
+                DataGridViewRow row = dgvDanhSachSP.SelectedRows[0];
+                // Lấy đối tượng HoaQua tương ứng với hàng đang được chọn
+                HoaQua spChon = (HoaQua)row.DataBoundItem;
+
+                // Kiểm tra xem đối tượng đó và dữ liệu ảnh của nó có tồn tại không
+                if (spChon != null && !string.IsNullOrEmpty(spChon.HinhAnh) && File.Exists(spChon.HinhAnh))
+                {
+                    // Chỉ hiển thị ảnh nếu đường dẫn hợp lệ và file thực sự tồn tại
+                    picPreview.Image = Image.FromFile(spChon.HinhAnh);
+                }
+                else
+                {
+                    picPreview.Image = null; // Xóa ảnh preview nếu không có đường dẫn hoặc file không tồn tại
+                }
+                if (spChon != null)
+                {
+                    // Cập nhật các thông tin chi tiết của sản phẩm được chọn
+                    lbDetailTenSP.Text = spChon.TenSP;
+                    lbDetailGia.Text = "Đơn giá: " + spChon.DonGia.ToString("N0") + " VNĐ";
+                    lbDetailXuatXu.Text = "Xuất xứ: " + spChon.XuatXu;
+                    lbDetailDVT.Text = "Đơn vị tính: " + spChon.DonViTinh;
+                    txtDetailMoTa.Text = spChon.MoTa;
+                    lbDetailSoLuong.Text = "Tồn kho: " + spChon.SoLuongTon.ToString();
+                }
+            }
+            else
+            {
+                // Nếu không có gì được chọn, xóa trắng các thông tin
+                picPreview.Image = null;
+                lbDetailTenSP.Text = "(Chưa chọn sản phẩm)";
+                lbDetailGia.Text = "Đơn giá:";
+                lbDetailXuatXu.Text = "Xuất xứ:";
+                lbDetailDVT.Text = "Đơn vị tính:";
+                txtDetailMoTa.Text = "";
+            }
         }
 
         private void txtMoTa_TextChanged(object sender, EventArgs e)

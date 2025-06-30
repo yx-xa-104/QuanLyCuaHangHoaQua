@@ -20,23 +20,20 @@ namespace QuanLyCuaHangHoaQua
             try
             {
                 using (SqlConnection conn = Database.GetConnection())
-                {
+                {                   
                     conn.Open();
-                    // Id bị nhảy nguyên nhân là do server restart
-                    // Câu lệnh SQL để lấy danh sách sản phẩm với số thứ tự
                     string query = "SELECT ROW_NUMBER() OVER (ORDER BY TenSP ASC) AS STT, Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon FROM SanPham";
-
-                    // Kiểm tra nếu có từ khóa tìm kiếm
+                    // Nếu từ khóa tìm kiếm không rỗng, thêm điều kiện WHERE vào truy vấn
                     if (!string.IsNullOrWhiteSpace(tuKhoa))
                     {
                         query += " WHERE TenSP LIKE @tuKhoa";
                     }
+                    // Thêm sắp xếp theo tên sản phẩm
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Nếu có từ khóa tìm kiếm, thêm tham số vào câu lệnh
                         if (!string.IsNullOrWhiteSpace(tuKhoa))
                         {
-                            cmd.Parameters.AddWithValue("@tuKhoa", "%" + tuKhoa + "%"); // Thêm tham số để tìm kiếm
+                            cmd.Parameters.AddWithValue("@tuKhoa", "%" + tuKhoa + "%");
                         }
 
                         using (SqlDataReader reader = cmd.ExecuteReader())

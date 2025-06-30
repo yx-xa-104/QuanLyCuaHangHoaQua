@@ -200,12 +200,13 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(251, 415);
+            btnLuu.Location = new Point(188, 415);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(75, 32);
+            btnLuu.Size = new Size(138, 32);
             btnLuu.TabIndex = 10;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // lbDonViTinh
             // 
@@ -219,12 +220,13 @@
             // 
             // btnChonAnh
             // 
-            btnChonAnh.Location = new Point(107, 415);
+            btnChonAnh.Location = new Point(6, 415);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(138, 32);
             btnChonAnh.TabIndex = 9;
             btnChonAnh.Text = "Chọn ảnh ...";
             btnChonAnh.UseVisualStyleBackColor = true;
+            btnChonAnh.Click += btnChonAnh_Click;
             // 
             // cbDonViTinh
             // 

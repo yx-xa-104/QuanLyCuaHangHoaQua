@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtTimKiemSP = new TextBox();
             dgvChonSP = new DataGridView();
             label1 = new Label();
             dgvGioHang = new DataGridView();
@@ -45,16 +44,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvGioHang).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numSoLuongMua).BeginInit();
             SuspendLayout();
-            // 
-            // txtTimKiemSP
-            // 
-            txtTimKiemSP.BackColor = SystemColors.Control;
-            txtTimKiemSP.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiemSP.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtTimKiemSP.Location = new Point(12, 12);
-            txtTimKiemSP.Name = "txtTimKiemSP";
-            txtTimKiemSP.Size = new Size(500, 29);
-            txtTimKiemSP.TabIndex = 0;
             // 
             // dgvChonSP
             // 
@@ -196,7 +185,6 @@
             Controls.Add(dgvGioHang);
             Controls.Add(label1);
             Controls.Add(dgvChonSP);
-            Controls.Add(txtTimKiemSP);
             Name = "FormBanHang";
             Text = "FormBanHang";
             Load += FormBanHang_Load;
@@ -208,8 +196,6 @@
         }
 
         #endregion
-
-        private TextBox txtTimKiemSP;
         private DataGridView dgvChonSP;
         private Label label1;
         private DataGridView dgvGioHang;

@@ -105,7 +105,6 @@ namespace QuanLyCuaHangHoaQua
             {
                 picHinhAnh.Image = null;
             }
-
             // Đồng bộ lựa chọn trên DataGridView điều hướng
             dgvDanhSachDieuHuong.ClearSelection();
             dgvDanhSachDieuHuong.Rows[index].Selected = true;
@@ -126,7 +125,7 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            // Validation
+            // Validation (Kiểm tra dữ liệu đầu vào)
             if (string.IsNullOrWhiteSpace(txtTenHoaQua.Text))
             {
                 MessageBox.Show("Tên hoa quả không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -140,11 +139,13 @@ namespace QuanLyCuaHangHoaQua
                 return;
             }
 
-            if (_viTriHienTai != -1) // Chế độ SỬA
+            try
             {
-                HoaQua spCanSua = _toanBoDanhSachSP[_viTriHienTai];
-                try
+                if (_viTriHienTai != -1) // Chế độ SỬA
                 {
+                    // Lấy đối tượng sản phẩm hiện tại từ danh sách
+                    HoaQua spCanSua = _toanBoDanhSachSP[_viTriHienTai];
+
                     using (SqlConnection conn = Database.GetConnection())
                     {
                         conn.Open();
@@ -157,12 +158,13 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
                             cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
                             cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
-                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
+                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon ?? (object)DBNull.Value);
                             cmd.Parameters.AddWithValue("@id", spCanSua.Id);
 
                             if (cmd.ExecuteNonQuery() > 0)
                             {
-                                // Cập nhật lại đối tượng trong List để giao diện được đồng bộ ngay lập tức
+                                // Cập nhật lại các thuộc tính của đối tượng trong List
+                                // để giao diện được đồng bộ ngay lập tức mà không cần tải lại từ DB
                                 spCanSua.TenSP = txtTenHoaQua.Text;
                                 spCanSua.DonViTinh = cbDonViTinh.Text;
                                 spCanSua.DonGia = numDonGia.Value;
@@ -176,14 +178,7 @@ namespace QuanLyCuaHangHoaQua
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi cập nhật sản phẩm: " + ex.Message);
-                }
-            }
-            else // Chế độ THÊM MỚI
-            {
-                try
+                else // Chế độ THÊM MỚI
                 {
                     using (SqlConnection conn = Database.GetConnection())
                     {
@@ -197,7 +192,7 @@ namespace QuanLyCuaHangHoaQua
                             cmd.Parameters.AddWithValue("@xuatXu", txtXuatXu.Text);
                             cmd.Parameters.AddWithValue("@moTa", txtMoTa.Text);
                             cmd.Parameters.AddWithValue("@soLuongTon", Convert.ToInt32(numSoLuongTon.Value));
-                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon);
+                            cmd.Parameters.AddWithValue("@hinhAnh", _duongDanAnhDuocChon ?? (object)DBNull.Value);
 
                             if (cmd.ExecuteNonQuery() > 0)
                             {
@@ -207,13 +202,26 @@ namespace QuanLyCuaHangHoaQua
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm sản phẩm: " + ex.Message);
-                }
             }
-        }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu sản phẩm: " + ex.Message);
+            }
 
+        }
+        private HoaQua LayThongTinSanPhamTuForm()
+        {
+            return new HoaQua
+            {
+                TenSP = txtTenHoaQua.Text.Trim(),
+                DonViTinh = cbDonViTinh.Text,
+                DonGia = numDonGia.Value,
+                SoLuongTon = (int)numSoLuongTon.Value,
+                XuatXu = txtXuatXu.Text.Trim(),
+                MoTa = txtMoTa.Text.Trim(),
+                HinhAnh = _duongDanAnhDuocChon
+            };
+        }
         private void btnTruoc_Click(object sender, EventArgs e)
         {
             if (_viTriHienTai > 0)
