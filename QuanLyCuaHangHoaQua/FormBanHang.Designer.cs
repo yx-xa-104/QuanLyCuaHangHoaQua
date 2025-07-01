@@ -35,8 +35,6 @@
             numSoLuongMua = new NumericUpDown();
             btnThemVaoGio = new Button();
             btnXoaKhoiGio = new Button();
-            label3 = new Label();
-            cbGiamGia = new ComboBox();
             lbTongTien = new Label();
             btnThanhToan = new Button();
             label4 = new Label();
@@ -76,7 +74,7 @@
             dgvGioHang.Name = "dgvGioHang";
             dgvGioHang.Size = new Size(456, 300);
             dgvGioHang.TabIndex = 3;
-            dgvGioHang.CellFormatting += dgvGioHang_CellFormatting;
+            dgvGioHang.CellValueChanged += dgvGioHang_CellValueChanged;
             // 
             // label2
             // 
@@ -93,16 +91,16 @@
             numSoLuongMua.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             numSoLuongMua.Location = new Point(553, 388);
             numSoLuongMua.Name = "numSoLuongMua";
-            numSoLuongMua.Size = new Size(74, 29);
+            numSoLuongMua.Size = new Size(83, 29);
             numSoLuongMua.TabIndex = 5;
             // 
             // btnThemVaoGio
             // 
             btnThemVaoGio.BackColor = SystemColors.ActiveCaption;
             btnThemVaoGio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThemVaoGio.Location = new Point(762, 370);
+            btnThemVaoGio.Location = new Point(665, 370);
             btnThemVaoGio.Name = "btnThemVaoGio";
-            btnThemVaoGio.Size = new Size(109, 58);
+            btnThemVaoGio.Size = new Size(157, 58);
             btnThemVaoGio.TabIndex = 6;
             btnThemVaoGio.Text = "Thêm vào giỏ";
             btnThemVaoGio.UseVisualStyleBackColor = false;
@@ -112,34 +110,13 @@
             // 
             btnXoaKhoiGio.BackColor = Color.IndianRed;
             btnXoaKhoiGio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoaKhoiGio.Location = new Point(901, 370);
+            btnXoaKhoiGio.Location = new Point(851, 370);
             btnXoaKhoiGio.Name = "btnXoaKhoiGio";
-            btnXoaKhoiGio.Size = new Size(107, 58);
+            btnXoaKhoiGio.Size = new Size(157, 58);
             btnXoaKhoiGio.TabIndex = 7;
             btnXoaKhoiGio.Text = "Xoá khỏi giỏ";
             btnXoaKhoiGio.UseVisualStyleBackColor = false;
             btnXoaKhoiGio.Click += btnXoaKhoiGio_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(654, 364);
-            label3.Name = "label3";
-            label3.Size = new Size(78, 21);
-            label3.TabIndex = 8;
-            label3.Text = "Giảm giá";
-            // 
-            // cbGiamGia
-            // 
-            cbGiamGia.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cbGiamGia.FormattingEnabled = true;
-            cbGiamGia.Items.AddRange(new object[] { "5", "10", "15", "20", "25" });
-            cbGiamGia.Location = new Point(657, 388);
-            cbGiamGia.Name = "cbGiamGia";
-            cbGiamGia.Size = new Size(75, 29);
-            cbGiamGia.TabIndex = 9;
-            cbGiamGia.SelectedIndexChanged += cbGiamGia_SelectedIndexChanged;
             // 
             // lbTongTien
             // 
@@ -203,8 +180,6 @@
             Controls.Add(label4);
             Controls.Add(btnThanhToan);
             Controls.Add(lbTongTien);
-            Controls.Add(cbGiamGia);
-            Controls.Add(label3);
             Controls.Add(btnXoaKhoiGio);
             Controls.Add(btnThemVaoGio);
             Controls.Add(numSoLuongMua);
@@ -231,8 +206,6 @@
         private NumericUpDown numSoLuongMua;
         private Button btnThemVaoGio;
         private Button btnXoaKhoiGio;
-        private Label label3;
-        private ComboBox cbGiamGia;
         private Label lbTongTien;
         private Button btnThanhToan;
         private Label label4;

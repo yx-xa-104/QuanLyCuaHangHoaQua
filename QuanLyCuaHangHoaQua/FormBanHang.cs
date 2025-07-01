@@ -71,28 +71,70 @@ namespace QuanLyCuaHangHoaQua
 
         private void FormBanHang_Load(object sender, EventArgs e)
         {
-            // Thiết lập tiêu đề cho Form
+            // Tắt tính năng tự động tạo cột
+            dgvChonSP.AutoGenerateColumns = false;
+            // Xóa các cột cũ để tránh bị trùng lặp khi chạy lại
+            dgvChonSP.Columns.Clear();
+
+            // Thêm các cột cần thiết và liên kết chúng với thuộc tính của lớp HoaQua
+            dgvChonSP.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TenSP",
+                HeaderText = "Tên Sản Phẩm",
+                DataPropertyName = "TenSP", // Liên kết với thuộc tính "TenSP"
+                FillWeight = 40 // Tỷ lệ chiều rộng
+            });
+
+            dgvChonSP.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "DonViTinh",
+                HeaderText = "ĐVT",
+                DataPropertyName = "DonViTinh", // Liên kết với thuộc tính "DonViTinh"
+                FillWeight = 15
+            });
+
+            dgvChonSP.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "DonGia",
+                HeaderText = "Đơn Giá",
+                DataPropertyName = "DonGia", // Liên kết với thuộc tính "DonGia"
+                DefaultCellStyle = { Format = "N0" }, // Định dạng tiền tệ
+                FillWeight = 20
+            });
+
+            dgvChonSP.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "XuatXu",
+                HeaderText = "Xuất Xứ",
+                DataPropertyName = "XuatXu", // Liên kết với thuộc tính "XuatXu"
+                FillWeight = 25
+            });
+
+            dgvChonSP.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "SoLuongTon",
+                HeaderText = "Tồn Kho",
+                DataPropertyName = "SoLuongTon", // Liên kết với thuộc tính "SoLuongTon"
+                FillWeight = 15
+            });
+
+            // Thiết lập chế độ tự động dãn cột cho vừa vặn
+            dgvChonSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Tải và lọc dữ liệu như cũ
             var tatCaSanPham = Database.GetAllProducts();
             var sanPhamDangKinhDoanh = tatCaSanPham.Where(sp => sp.TrangThai == true).ToList();
             dgvChonSP.DataSource = sanPhamDangKinhDoanh;
+
+            // Cấu hình các cột của DataGridView
             dgvChonSP.SelectionChanged += dgvChonSP_SelectionChanged;
             dgvChonSP.CellClick += dgvChonSP_CellClick;
-            this.dgvGioHang.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvGioHang_CellFormatting);
 
-
-            // Tải danh sách sản phẩm vào DataGridView bên trái
-            dgvChonSP.DataSource = Database.GetAllProducts();
-            // Ẩn các cột không cần thiết
-            if (dgvChonSP.Columns["HinhAnh"] != null) dgvChonSP.Columns["HinhAnh"].Visible = false;
-            if (dgvChonSP.Columns["MoTa"] != null) dgvChonSP.Columns["MoTa"].Visible = false;
-            if (dgvChonSP.Columns["Id"] != null) dgvChonSP.Columns["Id"].Visible = false;
-
-            // Cài đặt cho ComboBox Giảm giá
-            cbGiamGia.Items.Add(0);
-            cbGiamGia.Items.Add(5);
-            cbGiamGia.Items.Add(10);
-            cbGiamGia.Items.Add(15);
-            cbGiamGia.SelectedItem = 0; // Mặc định không giảm giá
+            // Tải giỏ hàng ban đầu
+            if (dgvChonSP.Rows.Count > 0)
+            {
+                dgvChonSP.Rows[0].Selected = true;
+            }
         }
         private void LoadGioHang()
         {
@@ -116,14 +158,25 @@ namespace QuanLyCuaHangHoaQua
             // Định dạng cho cột tiền tệ
             if (dgvGioHang.Columns["DonGiaTaiThoiDiemBan"] != null)
                 dgvGioHang.Columns["DonGiaTaiThoiDiemBan"].DefaultCellStyle.Format = "N0";
+
+            // Định dạng cho cột thành tiền
+            if (dgvGioHang.Columns["GiamGia"] != null)
+            {
+                dgvGioHang.Columns["GiamGia"].HeaderText = "Giảm Giá (%)";
+                // Đặt các cột khác thành chỉ đọc
+                foreach (DataGridViewColumn column in dgvGioHang.Columns)
+                {
+                    if (column.Name != "GiamGia")
+                    {
+                        column.ReadOnly = true;
+                    }
+                }
+            }
         }
         private void UpdateTongTien()
         {
-            decimal tongTienHang = gioHang.Sum(item => item.ThanhTien);
-            int phanTramGiam = Convert.ToInt32(cbGiamGia.SelectedItem);
-            decimal soTienGiam = tongTienHang * phanTramGiam / 100;
-            decimal tongThanhToan = tongTienHang - soTienGiam;
-
+            // Tính tổng tiền từ giỏ hàng
+            decimal tongThanhToan = gioHang.Sum(item => item.ThanhTien);
             lbTongTien.Text = tongThanhToan.ToString("N0") + " VNĐ";
         }
 
@@ -168,11 +221,6 @@ namespace QuanLyCuaHangHoaQua
                 picPreview.Image = null;
             }
         }
-        private void cbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateTongTien(); // Gọi hàm cập nhật tổng tiền mỗi khi thay đổi giảm giá
-            dgvGioHang.Refresh(); // Cập nhật lại DataGridView để hiển thị giá trị mới
-        }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
@@ -191,48 +239,24 @@ namespace QuanLyCuaHangHoaQua
 
                 try
                 {
-                    // Tạo hóa đơn mới
-                    int phanTramGiam = Convert.ToInt32(cbGiamGia.SelectedItem);
-                    decimal tongTien = gioHang.Sum(item => item.ThanhTien) * (100 - phanTramGiam) / 100;
-
-                    string queryHoaDon = "INSERT INTO HoaDon (GiamGiaPhanTram, TongTien) VALUES (@giamGia, @tongTien); SELECT SCOPE_IDENTITY();";
+                    // Tạo hóa đơn mới (không còn giảm giá chung)
+                    decimal tongTien = gioHang.Sum(item => item.ThanhTien);
+                    string queryHoaDon = "INSERT INTO HoaDon (TongTien) OUTPUT INSERTED.Id VALUES (@tongTien)";
                     int idHoaDonMoi;
                     using (SqlCommand cmd = new SqlCommand(queryHoaDon, conn, transaction))
                     {
-                        cmd.Parameters.AddWithValue("@giamGia", phanTramGiam);
                         cmd.Parameters.AddWithValue("@tongTien", tongTien);
-                        idHoaDonMoi = Convert.ToInt32(cmd.ExecuteScalar()); // Lấy về ID của hóa đơn vừa tạo
+                        idHoaDonMoi = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                    // Lặp qua từng sản phẩm trong giỏ hàng và thực hiện các thao tác
+                    // Lưu chi tiết hóa đơn
                     foreach (ChiTietHoaDon item in gioHang)
                     {
-                        // Thêm chi tiết hóa đơn vào ChiTietHoaDon
-                        string queryChiTiet = "INSERT INTO ChiTietHoaDon (IdHoaDon, IdSanPham, SoLuong, DonGiaTaiThoiDiemBan) VALUES (@idHD, @idSP, @soLuong, @donGia)";
-                        using (SqlCommand cmd = new SqlCommand(queryChiTiet, conn, transaction))
+                        var danhSachSP_HienThi = (List<HoaQua>)dgvChonSP.DataSource;
+                        HoaQua sanPhamDaBan = danhSachSP_HienThi.FirstOrDefault(sp => sp.Id == item.IdSanPham);
+                        if (sanPhamDaBan != null)
                         {
-                            cmd.Parameters.AddWithValue("@idHD", idHoaDonMoi);
-                            cmd.Parameters.AddWithValue("@idSP", item.IdSanPham);
-                            cmd.Parameters.AddWithValue("@soLuong", item.SoLuong);
-                            cmd.Parameters.AddWithValue("@donGia", item.DonGiaTaiThoiDiemBan);
-                            cmd.ExecuteNonQuery();
-                            var danhSachSP_HienThi = (List<HoaQua>)dgvChonSP.DataSource;
-                            // Tìm sản phẩm tương ứng trong danh sách đó
-                            HoaQua sanPhamDaBan = danhSachSP_HienThi.FirstOrDefault(sp => sp.Id == item.IdSanPham);
-                            if (sanPhamDaBan != null)
-                            {
-                                // Trừ đi số lượng đã bán
-                                sanPhamDaBan.SoLuongTon -= item.SoLuong;
-                            }
-                        }
-
-                        // Cập nhật số lượng tồn kho của sản phẩm
-                        string queryUpdateSP = "UPDATE SanPham SET SoLuongTon = SoLuongTon - @soLuongBan WHERE Id = @idSP";
-                        using (SqlCommand cmd = new SqlCommand(queryUpdateSP, conn, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@soLuongBan", item.SoLuong);
-                            cmd.Parameters.AddWithValue("@idSP", item.IdSanPham);
-                            cmd.ExecuteNonQuery();
+                            sanPhamDaBan.SoLuongTon -= item.SoLuong;
                         }
                     }
 
@@ -265,36 +289,20 @@ namespace QuanLyCuaHangHoaQua
             }
         }
 
-        private void dgvGioHang_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dgvGioHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra xem có phải là cột "ThanhTien" và là hàng dữ liệu không
-            if (this.dgvGioHang.Columns[e.ColumnIndex].Name == "ThanhTien" && e.RowIndex >= 0)
+            // e.RowIndex >= 0 để đảm bảo đây là hàng dữ liệu
+            if (e.RowIndex >= 0)
             {
-                // Lấy chi tiết đơn hàng từ hàng hiện tại
-                ChiTietHoaDon item = this.dgvGioHang.Rows[e.RowIndex].DataBoundItem as ChiTietHoaDon;
-                if (item != null)
+                // Kiểm tra xem có phải cột "GiamGia" được thay đổi không
+                if (dgvGioHang.Columns[e.ColumnIndex].Name == "GiamGia")
                 {
-                    // Lấy thành tiền gốc
-                    decimal originalThanhTien = item.ThanhTien;
-
-                    // Lấy phần trăm giảm giá từ ComboBox
-                    int phanTramGiam = 0;
-                    if (cbGiamGia.SelectedItem != null)
-                    {
-                        phanTramGiam = Convert.ToInt32(cbGiamGia.SelectedItem);
-                    }
-
-                    // Tính toán giá trị mới sau khi đã giảm giá
-                    decimal soTienGiam = originalThanhTien * phanTramGiam / 100;
-                    decimal thanhTienDaGiam = originalThanhTien - soTienGiam;
-
-                    // Cập nhật lại giá trị hiển thị cho ô này
-                    e.Value = thanhTienDaGiam.ToString("N0");
-
-                    // Đảm bảo định dạng tiền tệ (N0) vẫn được áp dụng
-                    e.FormattingApplied = true;
+                    // Cập nhật lại tổng tiền
+                    UpdateTongTien();
+                    // Vẽ lại hàng để cột Thành Tiền hiển thị giá trị mới
+                    dgvGioHang.InvalidateRow(e.RowIndex);
                 }
             }
-        }
+        }        
     }
 }

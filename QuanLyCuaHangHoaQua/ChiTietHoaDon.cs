@@ -13,9 +13,19 @@ namespace QuanLyCuaHangHoaQua
         public int IdSanPham { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGiaTaiThoiDiemBan { get; set; }
+        public int GiamGia { get; set; }
         // Các thuộc tính dưới đây để hiển thị thuận tiện, không có trong CSDL
         public string TenSP { get; set; }
         public string DonViTinh { get; set; }
-        public decimal ThanhTien { get { return SoLuong * DonGiaTaiThoiDiemBan; } }
+        public decimal ThanhTien
+        {
+            get
+            {
+                decimal tongTienGoc = SoLuong * DonGiaTaiThoiDiemBan;
+                decimal tienGiam = tongTienGoc * GiamGia / 100;
+                return tongTienGoc - tienGiam;
+            }
+        }
+
     }
 }
