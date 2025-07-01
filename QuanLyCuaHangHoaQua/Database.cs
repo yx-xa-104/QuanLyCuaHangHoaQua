@@ -22,8 +22,7 @@ namespace QuanLyCuaHangHoaQua
                 using (SqlConnection conn = Database.GetConnection())
                 {                   
                     conn.Open();
-                    string query = "SELECT ROW_NUMBER() OVER (ORDER BY TenSP ASC) AS STT, Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon FROM SanPham";
-                    // Nếu từ khóa tìm kiếm không rỗng, thêm điều kiện WHERE vào truy vấn
+                    string query = "SELECT Id, TenSP, DonViTinh, DonGia, XuatXu, HinhAnh, MoTa, SoLuongTon, TrangThai FROM SanPham";
                     if (!string.IsNullOrWhiteSpace(tuKhoa))
                     {
                         query += " WHERE TenSP LIKE @tuKhoa";
@@ -48,13 +47,13 @@ namespace QuanLyCuaHangHoaQua
                                 sp.DonGia = Convert.ToDecimal(reader["DonGia"]);
                                 sp.XuatXu = Convert.ToString(reader["XuatXu"]);
                                 sp.MoTa = Convert.ToString(reader["MoTa"]);
+                                sp.TrangThai = Convert.ToBoolean(reader["TrangThai"]);
+                                sp.SoLuongTon = Convert.ToInt32(reader["SoLuongTon"]);
                                 if (reader["HinhAnh"] != DBNull.Value)
                                 {
                                     // Chỉ khi cột HinhAnh có dữ liệu, chúng ta mới thực hiện ép kiểu
                                     sp.HinhAnh = Convert.ToString(reader["HinhAnh"]);
                                 }
-                                sp.SoLuongTon = Convert.ToInt32(reader["SoLuongTon"]);
-
                                 danhSachHoaQua.Add(sp);
                             }
                         }

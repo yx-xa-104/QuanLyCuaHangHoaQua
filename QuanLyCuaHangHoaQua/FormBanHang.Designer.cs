@@ -40,9 +40,12 @@
             lbTongTien = new Label();
             btnThanhToan = new Button();
             label4 = new Label();
+            picPreview = new PictureBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvChonSP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvGioHang).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numSoLuongMua).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picPreview).BeginInit();
             SuspendLayout();
             // 
             // dgvChonSP
@@ -51,8 +54,9 @@
             dgvChonSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChonSP.Location = new Point(12, 47);
             dgvChonSP.Name = "dgvChonSP";
-            dgvChonSP.Size = new Size(500, 550);
+            dgvChonSP.Size = new Size(500, 424);
             dgvChonSP.TabIndex = 1;
+            dgvChonSP.CellClick += dgvChonSP_CellClick;
             // 
             // label1
             // 
@@ -72,6 +76,7 @@
             dgvGioHang.Name = "dgvGioHang";
             dgvGioHang.Size = new Size(456, 300);
             dgvGioHang.TabIndex = 3;
+            dgvGioHang.CellFormatting += dgvGioHang_CellFormatting;
             // 
             // label2
             // 
@@ -168,11 +173,33 @@
             label4.TabIndex = 12;
             label4.Text = "Tổng tiền (VNĐ):";
             // 
+            // picPreview
+            // 
+            picPreview.BorderStyle = BorderStyle.FixedSingle;
+            picPreview.Location = new Point(332, 477);
+            picPreview.Name = "picPreview";
+            picPreview.Size = new Size(180, 120);
+            picPreview.SizeMode = PictureBoxSizeMode.Zoom;
+            picPreview.TabIndex = 14;
+            picPreview.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(12, 477);
+            label5.Name = "label5";
+            label5.Size = new Size(310, 40);
+            label5.TabIndex = 15;
+            label5.Text = "Xem trước sản phẩm:";
+            // 
             // FormBanHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1021, 609);
+            Controls.Add(label5);
+            Controls.Add(picPreview);
             Controls.Add(label4);
             Controls.Add(btnThanhToan);
             Controls.Add(lbTongTien);
@@ -191,6 +218,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvChonSP).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvGioHang).EndInit();
             ((System.ComponentModel.ISupportInitialize)numSoLuongMua).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picPreview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -208,5 +236,7 @@
         private Label lbTongTien;
         private Button btnThanhToan;
         private Label label4;
+        private PictureBox picPreview;
+        private Label label5;
     }
 }

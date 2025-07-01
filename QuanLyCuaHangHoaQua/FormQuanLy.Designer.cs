@@ -64,6 +64,7 @@
             dgvDanhSachSP.TabIndex = 15;
             dgvDanhSachSP.CellClick += dgvDanhSachSP_CellClick;
             dgvDanhSachSP.CellContentClick += dgvDanhSachSP_CellContentClick;
+            dgvDanhSachSP.CellFormatting += dgvDanhSachSP_CellFormatting;
             dgvDanhSachSP.SelectionChanged += dgvDanhSachSP_SelectionChanged;
             // 
             // btnThemMoi

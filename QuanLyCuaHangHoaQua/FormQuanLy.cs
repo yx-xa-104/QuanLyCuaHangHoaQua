@@ -68,25 +68,23 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // Bước 1: Kiểm tra xem người dùng đã chọn hàng nào chưa (giữ nguyên)
+            // Kiểm tra xem có hàng nào được chọn không
             if (dgvDanhSachSP.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn sản phẩm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Bước 2: Lấy đối tượng sản phẩm từ hàng được chọn (giữ nguyên)
             HoaQua spChon = (HoaQua)dgvDanhSachSP.SelectedRows[0].DataBoundItem;
 
-            // Bước 3: Hỏi xác nhận với một thông điệp cảnh báo mạnh mẽ hơn
-            DialogResult result = MessageBox.Show(
-                "Dữ liệu sẽ bị xóa vĩnh viễn! Bạn có chắc chắn muốn xóa sản phẩm: '" + spChon.TenSP + "' không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
+            // Xác định hành động và thông điệp
+            bool trangThaiMoi = !spChon.TrangThai; // Đảo ngược trạng thái hiện tại
+            string thongDiep = trangThaiMoi
+                ? "Bạn có chắc muốn KINH DOANH TRỞ LẠI sản phẩm này?"
+                : "Bạn có chắc chắn muốn NGỪNG KINH DOANH sản phẩm này không?";
 
-            // Bước 4: Nếu người dùng xác nhận "Yes", tiến hành xóa trong CSDL
+            DialogResult result = MessageBox.Show(thongDiep, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Nếu người dùng chọn Yes, thực hiện cập nhật trạng thái
             if (result == DialogResult.Yes)
             {
                 try
@@ -94,41 +92,26 @@ namespace QuanLyCuaHangHoaQua
                     using (SqlConnection conn = Database.GetConnection())
                     {
                         conn.Open();
-
-                        // Viết câu lệnh DELETE với Parameter để chỉ định đúng Id
-                        string query = "DELETE FROM SanPham WHERE Id = @id";
-
+                        string query = "UPDATE SanPham SET TrangThai = @TrangThaiMoi WHERE Id = @id";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            // Gắn giá trị cho tham số @id
+                            cmd.Parameters.AddWithValue("@TrangThaiMoi", trangThaiMoi);
                             cmd.Parameters.AddWithValue("@id", spChon.Id);
 
-                            // Thực thi câu lệnh
-                            int res = cmd.ExecuteNonQuery();
-
-                            // Kiểm tra và thông báo kết quả
-                            if (res > 0)
+                            if (cmd.ExecuteNonQuery() > 0)
                             {
-                                MessageBox.Show("Xóa sản phẩm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                // Tải lại dữ liệu lên Grid để cập nhật giao diện
-                                LoadDataToGrid();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Xóa thất bại. Có thể sản phẩm đã được xóa bởi một người khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Thay đổi trạng thái thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadDataToGrid(); // Tải lại để cập nhật giao diện
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi trong quá trình xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            // Nếu người dùng chọn "No", không làm gì cả.
         }
-
-
 
         private void FormQuanLy_Load(object sender, EventArgs e)
         {
@@ -244,6 +227,26 @@ namespace QuanLyCuaHangHoaQua
             FormBaoCaoDoanhThu formBaoCao = new FormBaoCaoDoanhThu();
             formBaoCao.Show(); // Dùng Show() để có thể xem báo cáo song song với form chính
 
+        }
+
+        private void dgvDanhSachSP_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra xem có phải là hàng dữ liệu không
+            if (e.RowIndex >= 0)
+            {
+                // Lấy đối tượng sản phẩm tương ứng với hàng
+                HoaQua sp = this.dgvDanhSachSP.Rows[e.RowIndex].DataBoundItem as HoaQua;
+                if (sp != null)
+                {
+                    // Nếu sản phẩm đã ngừng kinh doanh (TrangThai = false)
+                    if (!sp.TrangThai)
+                    {
+                        // Tô màu xám cho cả hàng
+                        e.CellStyle.BackColor = Color.LightGray;
+                        e.CellStyle.ForeColor = Color.DarkGray;
+                    }
+                }
+            }
         }
     }
 }

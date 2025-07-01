@@ -62,6 +62,7 @@
             // 
             // dtpTuNgay
             // 
+            dtpTuNgay.CalendarFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpTuNgay.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpTuNgay.Location = new Point(43, 59);
             dtpTuNgay.Name = "dtpTuNgay";
@@ -70,6 +71,7 @@
             // 
             // dtpDenNgay
             // 
+            dtpDenNgay.CalendarFont = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpDenNgay.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpDenNgay.Location = new Point(380, 59);
             dtpDenNgay.Name = "dtpDenNgay";
