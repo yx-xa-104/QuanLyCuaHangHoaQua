@@ -132,9 +132,9 @@
             // 
             btnThanhToan.BackColor = Color.Chartreuse;
             btnThanhToan.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThanhToan.Location = new Point(702, 558);
+            btnThanhToan.Location = new Point(702, 516);
             btnThanhToan.Name = "btnThanhToan";
-            btnThanhToan.Size = new Size(136, 39);
+            btnThanhToan.Size = new Size(163, 81);
             btnThanhToan.TabIndex = 11;
             btnThanhToan.Text = "Thanh toán";
             btnThanhToan.UseVisualStyleBackColor = false;

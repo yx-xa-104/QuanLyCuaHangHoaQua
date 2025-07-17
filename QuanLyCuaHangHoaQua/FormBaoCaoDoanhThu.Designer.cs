@@ -37,6 +37,7 @@
             dtpDenNgay = new DateTimePicker();
             btnThongKe = new Button();
             chartDoanhThu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)chartDoanhThu).BeginInit();
             SuspendLayout();
             // 
@@ -95,22 +96,33 @@
             chartDoanhThu.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chartDoanhThu.Legends.Add(legend1);
-            chartDoanhThu.Location = new Point(43, 100);
+            chartDoanhThu.Location = new Point(43, 94);
             chartDoanhThu.Name = "chartDoanhThu";
             series1.ChartArea = "ChartArea1";
             series1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             series1.Legend = "Legend1";
             series1.Name = "DoanhThu";
             chartDoanhThu.Series.Add(series1);
-            chartDoanhThu.Size = new Size(606, 308);
+            chartDoanhThu.Size = new Size(606, 315);
             chartDoanhThu.TabIndex = 5;
             chartDoanhThu.Text = "chart1";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            label3.Location = new Point(684, 26);
+            label3.Name = "label3";
+            label3.Size = new Size(77, 21);
+            label3.TabIndex = 6;
+            label3.Text = "Hoá đơn:";
             // 
             // FormBaoCaoDoanhThu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(692, 480);
+            ClientSize = new Size(977, 480);
+            Controls.Add(label3);
             Controls.Add(chartDoanhThu);
             Controls.Add(btnThongKe);
             Controls.Add(dtpDenNgay);
@@ -132,5 +144,6 @@
         private DateTimePicker dtpDenNgay;
         private Button btnThongKe;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThu;
+        private Label label3;
     }
 }

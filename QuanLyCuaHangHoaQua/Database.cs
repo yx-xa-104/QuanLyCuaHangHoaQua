@@ -14,6 +14,7 @@ namespace QuanLyCuaHangHoaQua
         {
             return new SqlConnection(connectionString);
         }
+        // Lấy danh sách tất cả sản phẩm (hoa quả) từ cơ sở dữ liệu
         public static List<HoaQua> GetAllProducts(string tuKhoa = "")
         {
             List<HoaQua> danhSachHoaQua = new List<HoaQua>();

@@ -106,7 +106,7 @@
             // 
             picPreview.BackColor = Color.Transparent;
             picPreview.BorderStyle = BorderStyle.FixedSingle;
-            picPreview.Location = new Point(680, 94);
+            picPreview.Location = new Point(680, 54);
             picPreview.Name = "picPreview";
             picPreview.Size = new Size(320, 180);
             picPreview.SizeMode = PictureBoxSizeMode.Zoom;
@@ -117,7 +117,7 @@
             // 
             lbPreview.AutoSize = true;
             lbPreview.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbPreview.Location = new Point(747, 66);
+            lbPreview.Location = new Point(749, 17);
             lbPreview.Name = "lbPreview";
             lbPreview.Size = new Size(195, 25);
             lbPreview.TabIndex = 20;
@@ -133,9 +133,9 @@
             groupBox2.Controls.Add(lbDetailGia);
             groupBox2.Controls.Add(lbDetailTenSP);
             groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(680, 280);
+            groupBox2.Location = new Point(680, 240);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(320, 259);
+            groupBox2.Size = new Size(320, 299);
             groupBox2.TabIndex = 21;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin chi tiết:";
@@ -159,7 +159,7 @@
             txtDetailMoTa.Name = "txtDetailMoTa";
             txtDetailMoTa.ReadOnly = true;
             txtDetailMoTa.ScrollBars = ScrollBars.Vertical;
-            txtDetailMoTa.Size = new Size(299, 52);
+            txtDetailMoTa.Size = new Size(299, 94);
             txtDetailMoTa.TabIndex = 5;
             txtDetailMoTa.TextChanged += txtMoTa_TextChanged;
             // 
