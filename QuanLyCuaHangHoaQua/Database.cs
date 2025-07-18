@@ -7,13 +7,16 @@ using Microsoft.Data.SqlClient;
 
 namespace QuanLyCuaHangHoaQua
 {
+    // Lớp Database chứa các phương thức để tương tác với cơ sở dữ liệu
     public static class Database
     {
+        // Chuỗi kết nối đến cơ sở dữ liệu LocalDB
         private static string connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=QuanLyCuaHangHoaQua;Trusted_Connection=True;";
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
         }
+
         // Lấy danh sách tất cả sản phẩm (hoa quả) từ cơ sở dữ liệu
         public static List<HoaQua> GetAllProducts(string tuKhoa = "")
         {
@@ -104,6 +107,44 @@ namespace QuanLyCuaHangHoaQua
                 throw new Exception("Lỗi khi lấy dữ liệu báo cáo: " + ex.Message);
             }
             return revenueData;
+        }
+      
+        // Lấy danh sách hóa đơn trong khoảng thời gian
+        public static List<HoaDon> GetInvoicesByDateRange(DateTime fromDate, DateTime toDate)
+        {
+            // Kiểm tra ngày hợp lệ
+            List<HoaDon> danhSachHoaDon = new List<HoaDon>();
+            try
+            {
+                using (SqlConnection conn = GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT Id, NgayTao, TongTien FROM HoaDon WHERE NgayTao BETWEEN @TuNgay AND @DenNgay ORDER BY NgayTao DESC";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TuNgay", fromDate.Date);
+                        cmd.Parameters.AddWithValue("@DenNgay", toDate.Date.AddDays(1).AddTicks(-1)); // Lấy hết ngày cuối cùng
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                HoaDon hd = new HoaDon
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    NgayTao = Convert.ToDateTime(reader["NgayTao"]),
+                                    TongTien = Convert.ToDecimal(reader["TongTien"])
+                                };
+                                danhSachHoaDon.Add(hd);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy danh sách hóa đơn: " + ex.Message);
+            }
+            return danhSachHoaDon;
         }
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvChonSP = new DataGridView();
             label1 = new Label();
             dgvGioHang = new DataGridView();
@@ -48,7 +50,15 @@
             // 
             // dgvChonSP
             // 
-            dgvChonSP.BackgroundColor = SystemColors.Control;
+            dgvChonSP.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvChonSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvChonSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChonSP.Location = new Point(12, 47);
             dgvChonSP.Name = "dgvChonSP";
@@ -68,7 +78,15 @@
             // 
             // dgvGioHang
             // 
-            dgvGioHang.BackgroundColor = SystemColors.Control;
+            dgvGioHang.BackgroundColor = Color.White;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvGioHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGioHang.Location = new Point(553, 47);
             dgvGioHang.Name = "dgvGioHang";
@@ -88,6 +106,7 @@
             // 
             // numSoLuongMua
             // 
+            numSoLuongMua.BackColor = Color.White;
             numSoLuongMua.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             numSoLuongMua.Location = new Point(553, 388);
             numSoLuongMua.Name = "numSoLuongMua";
@@ -97,6 +116,9 @@
             // btnThemVaoGio
             // 
             btnThemVaoGio.BackColor = SystemColors.ActiveCaption;
+            btnThemVaoGio.FlatAppearance.BorderColor = Color.CadetBlue;
+            btnThemVaoGio.FlatAppearance.MouseDownBackColor = Color.CadetBlue;
+            btnThemVaoGio.FlatAppearance.MouseOverBackColor = Color.CadetBlue;
             btnThemVaoGio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThemVaoGio.Location = new Point(665, 370);
             btnThemVaoGio.Name = "btnThemVaoGio";
@@ -109,6 +131,9 @@
             // btnXoaKhoiGio
             // 
             btnXoaKhoiGio.BackColor = Color.IndianRed;
+            btnXoaKhoiGio.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 128);
+            btnXoaKhoiGio.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 128);
+            btnXoaKhoiGio.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
             btnXoaKhoiGio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnXoaKhoiGio.Location = new Point(851, 370);
             btnXoaKhoiGio.Name = "btnXoaKhoiGio";
@@ -130,7 +155,10 @@
             // 
             // btnThanhToan
             // 
-            btnThanhToan.BackColor = Color.Chartreuse;
+            btnThanhToan.BackColor = Color.DarkSeaGreen;
+            btnThanhToan.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnThanhToan.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnThanhToan.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnThanhToan.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThanhToan.Location = new Point(702, 516);
             btnThanhToan.Name = "btnThanhToan";
@@ -174,6 +202,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(1021, 609);
             Controls.Add(label5);
             Controls.Add(picPreview);

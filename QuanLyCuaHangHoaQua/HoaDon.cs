@@ -13,6 +13,6 @@ namespace QuanLyCuaHangHoaQua
         public int GiamGiaPhanTram { get; set; }
         public decimal TongTien { get; set; }
         // Thuộc tính này để hiển thị thuận tiện, không có trong CSDL
-        public List<ChiTietHoaDon> ChiTiet { get; set; } = new List<ChiTietHoaDon>();
+        // public List<ChiTietHoaDon> ChiTiet { get; set; } = new List<ChiTietHoaDon>();
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLy));
             dgvDanhSachSP = new DataGridView();
             btnThemMoi = new Button();
@@ -55,7 +56,15 @@
             // 
             dgvDanhSachSP.AllowUserToAddRows = false;
             dgvDanhSachSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDanhSachSP.BackgroundColor = SystemColors.Control;
+            dgvDanhSachSP.BackgroundColor = Color.White;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvDanhSachSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvDanhSachSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachSP.Location = new Point(67, 94);
             dgvDanhSachSP.Name = "dgvDanhSachSP";
@@ -69,8 +78,13 @@
             // 
             // btnThemMoi
             // 
-            btnThemMoi.BackColor = Color.White;
-            btnThemMoi.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemMoi.BackColor = Color.DarkSeaGreen;
+            btnThemMoi.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnThemMoi.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnThemMoi.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnThemMoi.FlatStyle = FlatStyle.Flat;
+            btnThemMoi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnThemMoi.ForeColor = Color.Black;
             btnThemMoi.Location = new Point(67, 11);
             btnThemMoi.Name = "btnThemMoi";
             btnThemMoi.Size = new Size(94, 37);
@@ -81,8 +95,12 @@
             // 
             // btnSua
             // 
-            btnSua.BackColor = Color.White;
-            btnSua.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSua.BackColor = Color.DarkSeaGreen;
+            btnSua.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnSua.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnSua.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnSua.Location = new Point(216, 12);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(94, 37);
@@ -93,13 +111,18 @@
             // 
             // btnXoa
             // 
-            btnXoa.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.BackColor = Color.IndianRed;
+            btnXoa.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 128);
+            btnXoa.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 128);
+            btnXoa.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnXoa.Location = new Point(365, 12);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(94, 37);
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xoá SP";
-            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click;
             // 
             // picPreview
@@ -151,7 +174,7 @@
             // 
             // txtDetailMoTa
             // 
-            txtDetailMoTa.BackColor = SystemColors.Window;
+            txtDetailMoTa.BackColor = Color.Honeydew;
             txtDetailMoTa.BorderStyle = BorderStyle.FixedSingle;
             txtDetailMoTa.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDetailMoTa.Location = new Point(6, 199);
@@ -215,6 +238,7 @@
             // 
             // txtTimKiem
             // 
+            txtTimKiem.BackColor = Color.White;
             txtTimKiem.BorderStyle = BorderStyle.FixedSingle;
             txtTimKiem.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTimKiem.Location = new Point(209, 54);
@@ -238,19 +262,25 @@
             // 
             // btnBaoCao
             // 
-            btnBaoCao.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBaoCao.BackColor = Color.DarkSeaGreen;
+            btnBaoCao.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnBaoCao.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnBaoCao.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnBaoCao.FlatStyle = FlatStyle.Flat;
+            btnBaoCao.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnBaoCao.Location = new Point(514, 13);
             btnBaoCao.Name = "btnBaoCao";
             btnBaoCao.Size = new Size(111, 36);
             btnBaoCao.TabIndex = 25;
             btnBaoCao.Text = "Doanh thu";
-            btnBaoCao.UseVisualStyleBackColor = true;
+            btnBaoCao.UseVisualStyleBackColor = false;
             btnBaoCao.Click += btnBaoCao_Click;
             // 
             // FormQuanLy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(1045, 560);
             Controls.Add(btnBaoCao);
             Controls.Add(label1);

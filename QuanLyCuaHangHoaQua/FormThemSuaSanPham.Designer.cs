@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             splitContainer1 = new SplitContainer();
             dgvDanhSachDieuHuong = new DataGridView();
             groupBox1 = new GroupBox();
@@ -80,7 +81,15 @@
             // 
             dgvDanhSachDieuHuong.AllowUserToAddRows = false;
             dgvDanhSachDieuHuong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDanhSachDieuHuong.BackgroundColor = SystemColors.Control;
+            dgvDanhSachDieuHuong.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvDanhSachDieuHuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDanhSachDieuHuong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachDieuHuong.Dock = DockStyle.Fill;
             dgvDanhSachDieuHuong.Location = new Point(0, 0);
@@ -120,7 +129,7 @@
             // 
             // btnDong
             // 
-            btnDong.BackColor = Color.Red;
+            btnDong.BackColor = Color.IndianRed;
             btnDong.Cursor = Cursors.No;
             btnDong.ForeColor = SystemColors.ButtonFace;
             btnDong.Location = new Point(482, 494);
@@ -133,6 +142,7 @@
             // 
             // numSoLuongTon
             // 
+            numSoLuongTon.BackColor = Color.White;
             numSoLuongTon.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             numSoLuongTon.Location = new Point(396, 75);
             numSoLuongTon.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -152,18 +162,19 @@
             // 
             // txtMoTa
             // 
+            txtMoTa.BackColor = Color.White;
             txtMoTa.BorderStyle = BorderStyle.FixedSingle;
-            txtMoTa.Location = new Point(348, 242);
+            txtMoTa.Location = new Point(348, 214);
             txtMoTa.Multiline = true;
             txtMoTa.Name = "txtMoTa";
             txtMoTa.ScrollBars = ScrollBars.Vertical;
-            txtMoTa.Size = new Size(168, 167);
+            txtMoTa.Size = new Size(168, 195);
             txtMoTa.TabIndex = 13;
             // 
             // lbMoTa
             // 
             lbMoTa.AutoSize = true;
-            lbMoTa.Location = new Point(348, 214);
+            lbMoTa.Location = new Point(348, 186);
             lbMoTa.Name = "lbMoTa";
             lbMoTa.Size = new Size(69, 25);
             lbMoTa.TabIndex = 12;
@@ -171,6 +182,7 @@
             // 
             // txtTenHoaQua
             // 
+            txtTenHoaQua.BackColor = Color.White;
             txtTenHoaQua.BorderStyle = BorderStyle.FixedSingle;
             txtTenHoaQua.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTenHoaQua.Location = new Point(6, 74);
@@ -200,12 +212,14 @@
             // 
             // btnLuu
             // 
+            btnLuu.BackColor = SystemColors.ActiveCaption;
+            btnLuu.FlatStyle = FlatStyle.Flat;
             btnLuu.Location = new Point(188, 415);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(138, 32);
             btnLuu.TabIndex = 10;
             btnLuu.Text = "Lưu";
-            btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.UseVisualStyleBackColor = false;
             btnLuu.Click += btnLuu_Click;
             // 
             // lbDonViTinh
@@ -220,16 +234,22 @@
             // 
             // btnChonAnh
             // 
+            btnChonAnh.BackColor = Color.DarkSeaGreen;
+            btnChonAnh.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnChonAnh.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
+            btnChonAnh.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
+            btnChonAnh.FlatStyle = FlatStyle.Flat;
             btnChonAnh.Location = new Point(6, 415);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(138, 32);
             btnChonAnh.TabIndex = 9;
             btnChonAnh.Text = "Chọn ảnh ...";
-            btnChonAnh.UseVisualStyleBackColor = true;
+            btnChonAnh.UseVisualStyleBackColor = false;
             btnChonAnh.Click += btnChonAnh_Click;
             // 
             // cbDonViTinh
             // 
+            cbDonViTinh.BackColor = Color.White;
             cbDonViTinh.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDonViTinh.FormattingEnabled = true;
             cbDonViTinh.Items.AddRange(new object[] { "Kg", "Quả", "Bó", "Nải" });
@@ -241,7 +261,7 @@
             // lbXuatXu
             // 
             lbXuatXu.AutoSize = true;
-            lbXuatXu.Location = new Point(348, 150);
+            lbXuatXu.Location = new Point(348, 122);
             lbXuatXu.Name = "lbXuatXu";
             lbXuatXu.Size = new Size(88, 25);
             lbXuatXu.TabIndex = 6;
@@ -249,8 +269,9 @@
             // 
             // txtXuatXu
             // 
+            txtXuatXu.BackColor = Color.White;
             txtXuatXu.BorderStyle = BorderStyle.FixedSingle;
-            txtXuatXu.Location = new Point(348, 178);
+            txtXuatXu.Location = new Point(348, 150);
             txtXuatXu.Name = "txtXuatXu";
             txtXuatXu.Size = new Size(149, 33);
             txtXuatXu.TabIndex = 7;
@@ -267,6 +288,7 @@
             // 
             // numDonGia
             // 
+            numDonGia.BackColor = Color.White;
             numDonGia.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             numDonGia.Location = new Point(266, 74);
             numDonGia.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
@@ -289,6 +311,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(1029, 530);
             Controls.Add(splitContainer1);
             Name = "FormThemSuaSanPham";

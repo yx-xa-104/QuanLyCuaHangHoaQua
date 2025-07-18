@@ -49,11 +49,44 @@ namespace QuanLyCuaHangHoaQua
                     // Thêm điểm dữ liệu: Trục X là đối tượng DateTime, trục Y là Doanh thu
                     series.Points.AddXY(dataPoint.Key, dataPoint.Value);
                 }
+
+                // Tải danh sách hoá đơn từ CSDL theo khoảng thời gian đã chọn
+                var invoiceData = Database.GetInvoicesByDateRange(dtpTuNgay.Value, dtpDenNgay.Value);
+                dgvHoaDon.DataSource = null;
+                dgvHoaDon.DataSource = invoiceData;
+
+                // Tùy chỉnh các cột cho DataGridView hóa đơn
+                if (dgvHoaDon.Columns["Id"] != null)
+                {
+                    dgvHoaDon.Columns["Id"].HeaderText = "Mã HĐ";
+                    dgvHoaDon.Columns["Id"].FillWeight = 20;
+                }
+                if (dgvHoaDon.Columns["NgayTao"] != null)
+                {
+                    dgvHoaDon.Columns["NgayTao"].HeaderText = "Ngày Tạo";
+                    dgvHoaDon.Columns["NgayTao"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                    dgvHoaDon.Columns["NgayTao"].FillWeight = 50;
+                }
+                if (dgvHoaDon.Columns["TongTien"] != null)
+                {
+                    dgvHoaDon.Columns["TongTien"].HeaderText = "Tổng Tiền";
+                    dgvHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "N0";
+                    dgvHoaDon.Columns["TongTien"].FillWeight = 30;
+                }
+                // Ẩn các cột không cần thiết
+                if (dgvHoaDon.Columns["GiamGiaPhanTram"] != null) dgvHoaDon.Columns["GiamGiaPhanTram"].Visible = false;
+                if (dgvHoaDon.Columns["ChiTiet"] != null) dgvHoaDon.Columns["ChiTiet"].Visible = false;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

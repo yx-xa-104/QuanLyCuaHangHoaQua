@@ -15,6 +15,7 @@ namespace QuanLyCuaHangHoaQua
     {
         // Danh sách này đóng vai trò là "giỏ hàng" hiện tại
         List<ChiTietHoaDon> gioHang = new List<ChiTietHoaDon>();
+
         public FormBanHang()
         {
             InitializeComponent();

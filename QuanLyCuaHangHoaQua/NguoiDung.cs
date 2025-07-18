@@ -8,6 +8,7 @@ namespace QuanLyCuaHangHoaQua
 {
     public class NguoiDung
     {
+        // Thuộc tính này sẽ ánh xạ với bảng NguoiDung trong CSDL
         public int Id { get; set; }
         public string TenDangNhap { get; set; }
         public string MatKhauHash { get; set; }

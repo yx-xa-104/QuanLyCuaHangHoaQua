@@ -13,11 +13,12 @@ namespace QuanLyCuaHangHoaQua
             InitializeComponent();
         }
 
+        // Hàm này sẽ được gọi để tải dữ liệu từ cơ sở dữ liệu vào DataGridView
         private void LoadDataToGrid(string tuKhoa = "") // Thêm tham số tuKhoa để lọc dữ liệu
         {
             try
             {
-                // Chỉ cần gọi phương thức từ lớp Database để lấy dữ liệu
+                // Gọi phương thức từ lớp Database để lấy dữ liệu
                 danhSachHoaQua = Database.GetAllProducts(tuKhoa);
 
                 // Gán danh sách hoa quả vào DataGridView
@@ -38,17 +39,18 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
+            // Khi người dùng nhấn nút "Thêm mới", mở form thêm sản phẩm mới
             FormThemSuaSanPham formThem = new FormThemSuaSanPham(danhSachHoaQua, -1);
 
-            // Mở form dưới dạng Dialog
             formThem.ShowDialog();
 
-            // Gọi lại hàm LoadDataToGrid() để cập nhật lại bảng là xong.
+            // Gọi lại hàm LoadDataToGrid() để cập nhật lại bảng
             LoadDataToGrid();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            // Kiểm tra xem có hàng nào được chọn không
             if (dgvDanhSachSP.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần sửa.");
@@ -75,6 +77,7 @@ namespace QuanLyCuaHangHoaQua
                 return;
             }
 
+            // Lấy sản phẩm được chọn từ DataGridView
             HoaQua spChon = (HoaQua)dgvDanhSachSP.SelectedRows[0].DataBoundItem;
 
             // Xác định hành động và thông điệp
@@ -124,6 +127,7 @@ namespace QuanLyCuaHangHoaQua
             {
                 // Lấy hàng đang được chọn trong DataGridView
                 DataGridViewRow row = dgvDanhSachSP.SelectedRows[0];
+
                 // Lấy đối tượng HoaQua tương ứng với hàng đang được chọn
                 HoaQua spChon = (HoaQua)row.DataBoundItem;
 
@@ -175,11 +179,11 @@ namespace QuanLyCuaHangHoaQua
         private void dgvDanhSachSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem có hàng nào đang được chọn không.
-            // Khi không có hàng nào được chọn (ví dụ lúc mới tải form), SelectedRows.Count = 0
             if (e.RowIndex >= 0)
             {
                 // Lấy hàng đang được chọn trong DataGridView
                 DataGridViewRow row = this.dgvDanhSachSP.Rows[e.RowIndex];
+
                 // Lấy đối tượng HoaQua tương ứng với hàng đang được chọn
                 HoaQua spChon = (HoaQua)row.DataBoundItem;
 
@@ -225,7 +229,7 @@ namespace QuanLyCuaHangHoaQua
         {
             // Khi người dùng nhấn nút "Báo cáo doanh thu", mở form báo cáo doanh thu
             FormBaoCaoDoanhThu formBaoCao = new FormBaoCaoDoanhThu();
-            formBaoCao.Show(); // Dùng Show() để có thể xem báo cáo song song với form chính
+            formBaoCao.Show(); 
 
         }
 

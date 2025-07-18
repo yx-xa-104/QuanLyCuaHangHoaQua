@@ -3,56 +3,36 @@
   "WorkspaceRootPath": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formthemsuasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formthemsuasanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\hoaqua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:hoaqua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formbaocaodoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formbaocaodoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\hoaqua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:hoaqua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formbanhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formquanly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|d:\\onedrive\\documents\\github\\quanlycuahanghoaqua\\quanlycuahanghoaqua\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D7A03B24-0BDC-47B9-B79D-738E16468E9B}|QuanLyCuaHangHoaQua.csproj|solutionrelative:formdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,47 +42,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormQuanLy.cs [Design]",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
-              "RelativeDocumentMoniker": "FormQuanLy.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs [Design]",
-              "RelativeToolTip": "FormQuanLy.cs [Design]",
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "PasswordHasher.cs",
+              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\PasswordHasher.cs",
+              "RelativeToolTip": "PasswordHasher.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T16:24:19.886Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormBanHang.cs [Design]",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBanHang.cs",
-              "RelativeDocumentMoniker": "FormBanHang.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBanHang.cs [Design]",
-              "RelativeToolTip": "FormBanHang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T15:21:46.407Z",
-              "IsPinned": true
+              "WhenOpened": "2025-07-17T10:22:29.147Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FormThemSuaSanPham.cs [Design]",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormThemSuaSanPham.cs",
-              "RelativeDocumentMoniker": "FormThemSuaSanPham.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormThemSuaSanPham.cs [Design]",
-              "RelativeToolTip": "FormThemSuaSanPham.cs [Design]",
+              "Title": "NguoiDung.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\NguoiDung.cs",
+              "RelativeDocumentMoniker": "NguoiDung.cs",
+              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\NguoiDung.cs",
+              "RelativeToolTip": "NguoiDung.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T11:01:31.251Z"
+              "WhenOpened": "2025-07-16T07:55:47.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Database.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
+              "RelativeDocumentMoniker": "Database.cs",
+              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
+              "RelativeToolTip": "Database.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAIwHsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T09:03:03.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormQuanLy.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
+              "RelativeDocumentMoniker": "FormQuanLy.cs",
+              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
+              "RelativeToolTip": "FormQuanLy.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAswLkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T08:59:57.898Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "HoaDon.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\HoaDon.cs",
+              "RelativeDocumentMoniker": "HoaDon.cs",
+              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\HoaDon.cs",
+              "RelativeToolTip": "HoaDon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T07:58:49.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "HoaQua.cs",
               "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\HoaQua.cs",
               "RelativeDocumentMoniker": "HoaQua.cs",
@@ -110,84 +119,12 @@
               "RelativeToolTip": "HoaQua.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T07:59:30.333Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "HoaDon.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\HoaDon.cs",
-              "RelativeDocumentMoniker": "HoaDon.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\HoaDon.cs",
-              "RelativeToolTip": "HoaDon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T07:58:49.777Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "NguoiDung.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\NguoiDung.cs",
-              "RelativeDocumentMoniker": "NguoiDung.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\NguoiDung.cs",
-              "RelativeToolTip": "NguoiDung.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T07:55:47.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PasswordHasher.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\PasswordHasher.cs",
-              "RelativeDocumentMoniker": "PasswordHasher.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\PasswordHasher.cs",
-              "RelativeToolTip": "PasswordHasher.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T07:55:31.831Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ChiTietHoaDon.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\ChiTietHoaDon.cs",
-              "RelativeDocumentMoniker": "ChiTietHoaDon.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\ChiTietHoaDon.cs",
-              "RelativeToolTip": "ChiTietHoaDon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T07:46:00.704Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Database.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
-              "RelativeDocumentMoniker": "Database.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\Database.cs",
-              "RelativeToolTip": "Database.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T09:03:03.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormQuanLy.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
-              "RelativeDocumentMoniker": "FormQuanLy.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormQuanLy.cs",
-              "RelativeToolTip": "FormQuanLy.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wKwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T08:59:57.898Z",
+              "WhenOpened": "2025-07-16T07:59:30.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "FormDangNhap.cs [Design]",
               "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormDangNhap.cs",
               "RelativeDocumentMoniker": "FormDangNhap.cs",
@@ -198,26 +135,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormBaoCaoDoanhThu.cs [Design]",
-              "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBaoCaoDoanhThu.cs",
-              "RelativeDocumentMoniker": "FormBaoCaoDoanhThu.cs",
-              "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBaoCaoDoanhThu.cs [Design]",
-              "RelativeToolTip": "FormBaoCaoDoanhThu.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T08:13:29.562Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "FormBanHang.cs",
               "DocumentMoniker": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBanHang.cs",
               "RelativeDocumentMoniker": "FormBanHang.cs",
               "ToolTip": "D:\\OneDrive\\Documents\\GitHub\\QuanLyCuaHangHoaQua\\QuanLyCuaHangHoaQua\\FormBanHang.cs",
               "RelativeToolTip": "FormBanHang.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAvwAcBAAApAAAAAAAAAA==",
+              "ViewState": "AgIAABsBAAAAAAAAAAAYwOAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T16:36:58.827Z"
+              "WhenOpened": "2025-06-29T16:36:58.827Z",
+              "EditorCaption": ""
             }
           ]
         }
