@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using System.Windows.Forms;
 
 namespace QuanLyCuaHangHoaQua
 {
@@ -229,7 +230,7 @@ namespace QuanLyCuaHangHoaQua
         {
             // Khi người dùng nhấn nút "Báo cáo doanh thu", mở form báo cáo doanh thu
             FormBaoCaoDoanhThu formBaoCao = new FormBaoCaoDoanhThu();
-            formBaoCao.Show(); 
+            formBaoCao.Show();
 
         }
 
@@ -250,6 +251,30 @@ namespace QuanLyCuaHangHoaQua
                         e.CellStyle.ForeColor = Color.DarkGray;
                     }
                 }
+            }
+        }
+
+        private void FormQuanLy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Xác nhận khi người dùng đóng form
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Hủy bỏ hành động đóng form
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Đóng form quản lý và trở về form đăng nhập
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // Đóng form hiện tại
+                this.Close();
+                // Mở lại form đăng nhập
+                FormDangNhap formDangNhap = new FormDangNhap();
+                formDangNhap.ShowDialog(); // Hiển thị form đăng nhập
             }
         }
     }

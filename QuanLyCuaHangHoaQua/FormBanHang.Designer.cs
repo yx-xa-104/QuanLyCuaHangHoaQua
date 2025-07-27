@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBanHang));
             dgvChonSP = new DataGridView();
             label1 = new Label();
             dgvGioHang = new DataGridView();
@@ -51,14 +52,14 @@
             // dgvChonSP
             // 
             dgvChonSP.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.MediumSeaGreen;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.LightGreen;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvChonSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvChonSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvChonSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChonSP.Location = new Point(12, 47);
             dgvChonSP.Name = "dgvChonSP";
@@ -79,14 +80,14 @@
             // dgvGioHang
             // 
             dgvGioHang.BackgroundColor = Color.White;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.MediumSeaGreen;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightGreen;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvGioHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGioHang.Location = new Point(553, 47);
             dgvGioHang.Name = "dgvGioHang";
@@ -120,26 +121,31 @@
             btnThemVaoGio.FlatAppearance.MouseDownBackColor = Color.CadetBlue;
             btnThemVaoGio.FlatAppearance.MouseOverBackColor = Color.CadetBlue;
             btnThemVaoGio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThemVaoGio.Image = (Image)resources.GetObject("btnThemVaoGio.Image");
+            btnThemVaoGio.ImageAlign = ContentAlignment.MiddleLeft;
             btnThemVaoGio.Location = new Point(665, 370);
             btnThemVaoGio.Name = "btnThemVaoGio";
-            btnThemVaoGio.Size = new Size(157, 58);
+            btnThemVaoGio.Size = new Size(161, 58);
             btnThemVaoGio.TabIndex = 6;
-            btnThemVaoGio.Text = "Thêm vào giỏ";
+            btnThemVaoGio.Text = "    Thêm vào giỏ";
             btnThemVaoGio.UseVisualStyleBackColor = false;
             btnThemVaoGio.Click += btnThemVaoGio_Click;
             // 
             // btnXoaKhoiGio
             // 
             btnXoaKhoiGio.BackColor = Color.IndianRed;
+            btnXoaKhoiGio.BackgroundImageLayout = ImageLayout.Center;
             btnXoaKhoiGio.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 128);
             btnXoaKhoiGio.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 128);
             btnXoaKhoiGio.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
             btnXoaKhoiGio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoaKhoiGio.Image = (Image)resources.GetObject("btnXoaKhoiGio.Image");
+            btnXoaKhoiGio.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoaKhoiGio.Location = new Point(851, 370);
             btnXoaKhoiGio.Name = "btnXoaKhoiGio";
             btnXoaKhoiGio.Size = new Size(157, 58);
             btnXoaKhoiGio.TabIndex = 7;
-            btnXoaKhoiGio.Text = "Xoá khỏi giỏ";
+            btnXoaKhoiGio.Text = "    Xoá khỏi giỏ";
             btnXoaKhoiGio.UseVisualStyleBackColor = false;
             btnXoaKhoiGio.Click += btnXoaKhoiGio_Click;
             // 
@@ -160,11 +166,13 @@
             btnThanhToan.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
             btnThanhToan.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnThanhToan.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThanhToan.Location = new Point(702, 516);
+            btnThanhToan.Image = (Image)resources.GetObject("btnThanhToan.Image");
+            btnThanhToan.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThanhToan.Location = new Point(694, 520);
             btnThanhToan.Name = "btnThanhToan";
-            btnThanhToan.Size = new Size(163, 81);
+            btnThanhToan.Size = new Size(165, 56);
             btnThanhToan.TabIndex = 11;
-            btnThanhToan.Text = "Thanh toán";
+            btnThanhToan.Text = "  Thanh toán";
             btnThanhToan.UseVisualStyleBackColor = false;
             btnThanhToan.Click += btnThanhToan_Click;
             // 
@@ -180,7 +188,7 @@
             // 
             // picPreview
             // 
-            picPreview.BorderStyle = BorderStyle.FixedSingle;
+            picPreview.BorderStyle = BorderStyle.Fixed3D;
             picPreview.Location = new Point(332, 477);
             picPreview.Name = "picPreview";
             picPreview.Size = new Size(180, 120);
@@ -218,6 +226,7 @@
             Controls.Add(dgvChonSP);
             Name = "FormBanHang";
             Text = "FormBanHang";
+            FormClosing += FormBanHang_FormClosing;
             Load += FormBanHang_Load;
             ((System.ComponentModel.ISupportInitialize)dgvChonSP).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvGioHang).EndInit();

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLy));
             dgvDanhSachSP = new DataGridView();
             btnThemMoi = new Button();
@@ -47,6 +47,7 @@
             txtTimKiem = new TextBox();
             label1 = new Label();
             btnBaoCao = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachSP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picPreview).BeginInit();
             groupBox2.SuspendLayout();
@@ -57,14 +58,14 @@
             dgvDanhSachSP.AllowUserToAddRows = false;
             dgvDanhSachSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDanhSachSP.BackgroundColor = Color.White;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.MediumSeaGreen;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightGreen;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvDanhSachSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvDanhSachSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDanhSachSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachSP.Location = new Point(67, 94);
             dgvDanhSachSP.Name = "dgvDanhSachSP";
@@ -85,11 +86,13 @@
             btnThemMoi.FlatStyle = FlatStyle.Flat;
             btnThemMoi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThemMoi.ForeColor = Color.Black;
+            btnThemMoi.Image = (Image)resources.GetObject("btnThemMoi.Image");
+            btnThemMoi.ImageAlign = ContentAlignment.MiddleLeft;
             btnThemMoi.Location = new Point(67, 11);
             btnThemMoi.Name = "btnThemMoi";
             btnThemMoi.Size = new Size(94, 37);
             btnThemMoi.TabIndex = 16;
-            btnThemMoi.Text = "Thêm SP";
+            btnThemMoi.Text = "      Thêm";
             btnThemMoi.UseVisualStyleBackColor = false;
             btnThemMoi.Click += btnThemMoi_Click;
             // 
@@ -101,11 +104,13 @@
             btnSua.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnSua.Image = (Image)resources.GetObject("btnSua.Image");
+            btnSua.ImageAlign = ContentAlignment.MiddleLeft;
             btnSua.Location = new Point(216, 12);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(94, 37);
             btnSua.TabIndex = 17;
-            btnSua.Text = "Sửa SP";
+            btnSua.Text = "    Sửa";
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
@@ -116,19 +121,20 @@
             btnXoa.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 128);
             btnXoa.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
             btnXoa.FlatStyle = FlatStyle.Flat;
-            btnXoa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnXoa.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnXoa.Image = (Image)resources.GetObject("btnXoa.Image");
+            btnXoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnXoa.Location = new Point(365, 12);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(94, 37);
+            btnXoa.Size = new Size(102, 37);
             btnXoa.TabIndex = 18;
-            btnXoa.Text = "Xoá SP";
+            btnXoa.Text = "     Trạng thái";
             btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click;
             // 
             // picPreview
             // 
             picPreview.BackColor = Color.Transparent;
-            picPreview.BorderStyle = BorderStyle.FixedSingle;
             picPreview.Location = new Point(680, 54);
             picPreview.Name = "picPreview";
             picPreview.Size = new Size(320, 180);
@@ -267,21 +273,36 @@
             btnBaoCao.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
             btnBaoCao.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnBaoCao.FlatStyle = FlatStyle.Flat;
-            btnBaoCao.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnBaoCao.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnBaoCao.Image = (Image)resources.GetObject("btnBaoCao.Image");
+            btnBaoCao.ImageAlign = ContentAlignment.MiddleLeft;
             btnBaoCao.Location = new Point(514, 13);
             btnBaoCao.Name = "btnBaoCao";
             btnBaoCao.Size = new Size(111, 36);
             btnBaoCao.TabIndex = 25;
-            btnBaoCao.Text = "Doanh thu";
+            btnBaoCao.Text = "      Doanh thu";
             btnBaoCao.UseVisualStyleBackColor = false;
             btnBaoCao.Click += btnBaoCao_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(1001, 534);
+            button1.Name = "button1";
+            button1.Size = new Size(32, 32);
+            button1.TabIndex = 26;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // FormQuanLy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
-            ClientSize = new Size(1045, 560);
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(1045, 578);
+            Controls.Add(button1);
             Controls.Add(btnBaoCao);
             Controls.Add(label1);
             Controls.Add(txtTimKiem);
@@ -294,6 +315,7 @@
             Controls.Add(dgvDanhSachSP);
             Name = "FormQuanLy";
             Text = "FormQuanLy";
+            FormClosing += FormQuanLy_FormClosing;
             Load += FormQuanLy_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachSP).EndInit();
             ((System.ComponentModel.ISupportInitialize)picPreview).EndInit();
@@ -322,5 +344,6 @@
         private Label label1;
         private Label lbDetailSoLuong;
         private Button btnBaoCao;
+        private Button button1;
     }
 }

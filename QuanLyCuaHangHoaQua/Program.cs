@@ -35,8 +35,6 @@
                     Application.Run(new FormBanHang());
                 }
             }
-            // 3. Nếu không có người dùng được xác thực (họ nhấn Thoát hoặc đóng cửa sổ),
-            // hàm Main sẽ kết thúc và ứng dụng sẽ tự đóng lại.
-        }
+         }
     }
 }

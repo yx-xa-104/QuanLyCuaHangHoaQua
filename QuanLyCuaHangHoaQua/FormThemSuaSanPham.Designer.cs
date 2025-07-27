@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemSuaSanPham));
             splitContainer1 = new SplitContainer();
             dgvDanhSachDieuHuong = new DataGridView();
             groupBox1 = new GroupBox();
@@ -82,14 +83,14 @@
             dgvDanhSachDieuHuong.AllowUserToAddRows = false;
             dgvDanhSachDieuHuong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDanhSachDieuHuong.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.MediumSeaGreen;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.LightGreen;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvDanhSachDieuHuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.MediumSeaGreen;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightGreen;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvDanhSachDieuHuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvDanhSachDieuHuong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachDieuHuong.Dock = DockStyle.Fill;
             dgvDanhSachDieuHuong.Location = new Point(0, 0);
@@ -132,7 +133,7 @@
             btnDong.BackColor = Color.IndianRed;
             btnDong.Cursor = Cursors.No;
             btnDong.ForeColor = SystemColors.ButtonFace;
-            btnDong.Location = new Point(482, 494);
+            btnDong.Location = new Point(488, 488);
             btnDong.Name = "btnDong";
             btnDong.Size = new Size(34, 34);
             btnDong.TabIndex = 16;
@@ -214,11 +215,11 @@
             // 
             btnLuu.BackColor = SystemColors.ActiveCaption;
             btnLuu.FlatStyle = FlatStyle.Flat;
-            btnLuu.Location = new Point(188, 415);
+            btnLuu.Image = (Image)resources.GetObject("btnLuu.Image");
+            btnLuu.Location = new Point(220, 415);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(138, 32);
+            btnLuu.Size = new Size(82, 32);
             btnLuu.TabIndex = 10;
-            btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = false;
             btnLuu.Click += btnLuu_Click;
             // 
@@ -239,7 +240,7 @@
             btnChonAnh.FlatAppearance.MouseDownBackColor = Color.DarkGreen;
             btnChonAnh.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnChonAnh.FlatStyle = FlatStyle.Flat;
-            btnChonAnh.Location = new Point(6, 415);
+            btnChonAnh.Location = new Point(22, 415);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(138, 32);
             btnChonAnh.TabIndex = 9;

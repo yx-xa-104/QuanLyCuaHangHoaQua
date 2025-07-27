@@ -87,6 +87,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            StartPosition = FormStartPosition.CenterScreen;
             ClientSize = new Size(352, 605);
             Controls.Add(btnDangNhap);
             Controls.Add(btnThoat);

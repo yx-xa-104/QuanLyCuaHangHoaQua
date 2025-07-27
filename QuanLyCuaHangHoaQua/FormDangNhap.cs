@@ -14,9 +14,9 @@ namespace QuanLyCuaHangHoaQua
 {
     public partial class FormDangNhap : Form
     {
-    // Thuộc tính này sẽ chứa thông tin người dùng nếu đăng nhập thành công
-    // và sẽ là null nếu thất bại.
-    public NguoiDung NguoiDungDaXacThuc { get; private set; }
+        // Thuộc tính này sẽ chứa thông tin người dùng nếu đăng nhập thành công
+        // và sẽ là null nếu thất bại.
+        public NguoiDung NguoiDungDaXacThuc { get; private set; }
 
         // Constructor của FormDangNhap
         public FormDangNhap()
@@ -28,7 +28,8 @@ namespace QuanLyCuaHangHoaQua
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit(); // Thoát toàn bộ ứng dụng
+            // Đóng form đăng nhập và không thực hiện đăng nhập
+            this.Close();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -80,7 +81,9 @@ namespace QuanLyCuaHangHoaQua
                 {
                     // Gán đối tượng user vào thuộc tính công khai
                     this.NguoiDungDaXacThuc = user;
-                    this.Close(); // Đóng form đăng nhập
+                    // ẩn form đăng nhập
+                    this.Hide();
+
                 }
                 else
                 {
@@ -90,8 +93,8 @@ namespace QuanLyCuaHangHoaQua
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kết nối CSDL: " + ex.Message);
-            }
+            }            
         }
-    }
 
+    }
 }

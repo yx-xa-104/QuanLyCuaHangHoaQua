@@ -232,6 +232,13 @@ namespace QuanLyCuaHangHoaQua
                 return;
             }
 
+            // Kiểm tra nếu có sản phẩm có số lượng bằng 0
+            if (gioHang.Any(item => item.SoLuong <= 0))
+            {
+                MessageBox.Show("Số lượng sản phẩm phải lớn hơn 0!");
+                return;
+            }
+
             // Mở kết nối đến cơ sở dữ liệu và bắt đầu một transaction
             using (SqlConnection conn = Database.GetConnection())
             {
@@ -304,6 +311,11 @@ namespace QuanLyCuaHangHoaQua
                     dgvGioHang.InvalidateRow(e.RowIndex);
                 }
             }
-        }        
+        }
+
+        private void FormBanHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
     }
 }
